@@ -1,0 +1,598 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		50D94659255DFEEF003CC3DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D94658255DFEEF003CC3DA /* AppDelegate.swift */; };
+		50D9465B255DFEEF003CC3DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9465A255DFEEF003CC3DA /* SceneDelegate.swift */; };
+		50D9465D255DFEEF003CC3DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9465C255DFEEF003CC3DA /* ViewController.swift */; };
+		50D94660255DFEEF003CC3DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D9465E255DFEEF003CC3DA /* Main.storyboard */; };
+		50D94662255DFEF2003CC3DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50D94661255DFEF2003CC3DA /* Assets.xcassets */; };
+		50D94665255DFEF2003CC3DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D94663255DFEF2003CC3DA /* LaunchScreen.storyboard */; };
+		50D94670255DFEF2003CC3DA /* ChefcitoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9466F255DFEF2003CC3DA /* ChefcitoTests.swift */; };
+		50D9467B255DFEF3003CC3DA /* ChefcitoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9467A255DFEF3003CC3DA /* ChefcitoUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		50D9466C255DFEF2003CC3DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50D9464D255DFEEF003CC3DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50D94654255DFEEF003CC3DA;
+			remoteInfo = Chefcito;
+		};
+		50D94677255DFEF2003CC3DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50D9464D255DFEEF003CC3DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50D94654255DFEEF003CC3DA;
+			remoteInfo = Chefcito;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		50D94655255DFEEF003CC3DA /* Chefcito.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chefcito.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		50D94658255DFEEF003CC3DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		50D9465A255DFEEF003CC3DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		50D9465C255DFEEF003CC3DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		50D9465F255DFEEF003CC3DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		50D94661255DFEF2003CC3DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		50D94664255DFEF2003CC3DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		50D94666255DFEF2003CC3DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50D9466B255DFEF2003CC3DA /* ChefcitoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChefcitoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		50D9466F255DFEF2003CC3DA /* ChefcitoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefcitoTests.swift; sourceTree = "<group>"; };
+		50D94671255DFEF2003CC3DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50D94676255DFEF2003CC3DA /* ChefcitoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChefcitoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		50D9467A255DFEF3003CC3DA /* ChefcitoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefcitoUITests.swift; sourceTree = "<group>"; };
+		50D9467C255DFEF3003CC3DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		50D94652255DFEEF003CC3DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50D94668255DFEF2003CC3DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50D94673255DFEF2003CC3DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		50D9464C255DFEEF003CC3DA = {
+			isa = PBXGroup;
+			children = (
+				50D94657255DFEEF003CC3DA /* Chefcito */,
+				50D9466E255DFEF2003CC3DA /* ChefcitoTests */,
+				50D94679255DFEF2003CC3DA /* ChefcitoUITests */,
+				50D94656255DFEEF003CC3DA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		50D94656255DFEEF003CC3DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				50D94655255DFEEF003CC3DA /* Chefcito.app */,
+				50D9466B255DFEF2003CC3DA /* ChefcitoTests.xctest */,
+				50D94676255DFEF2003CC3DA /* ChefcitoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		50D94657255DFEEF003CC3DA /* Chefcito */ = {
+			isa = PBXGroup;
+			children = (
+				50D94658255DFEEF003CC3DA /* AppDelegate.swift */,
+				50D9465A255DFEEF003CC3DA /* SceneDelegate.swift */,
+				50D9465C255DFEEF003CC3DA /* ViewController.swift */,
+				50D9465E255DFEEF003CC3DA /* Main.storyboard */,
+				50D94661255DFEF2003CC3DA /* Assets.xcassets */,
+				50D94663255DFEF2003CC3DA /* LaunchScreen.storyboard */,
+				50D94666255DFEF2003CC3DA /* Info.plist */,
+			);
+			path = Chefcito;
+			sourceTree = "<group>";
+		};
+		50D9466E255DFEF2003CC3DA /* ChefcitoTests */ = {
+			isa = PBXGroup;
+			children = (
+				50D9466F255DFEF2003CC3DA /* ChefcitoTests.swift */,
+				50D94671255DFEF2003CC3DA /* Info.plist */,
+			);
+			path = ChefcitoTests;
+			sourceTree = "<group>";
+		};
+		50D94679255DFEF2003CC3DA /* ChefcitoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				50D9467A255DFEF3003CC3DA /* ChefcitoUITests.swift */,
+				50D9467C255DFEF3003CC3DA /* Info.plist */,
+			);
+			path = ChefcitoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		50D94654255DFEEF003CC3DA /* Chefcito */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50D9467F255DFEF3003CC3DA /* Build configuration list for PBXNativeTarget "Chefcito" */;
+			buildPhases = (
+				50D94651255DFEEF003CC3DA /* Sources */,
+				50D94652255DFEEF003CC3DA /* Frameworks */,
+				50D94653255DFEEF003CC3DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Chefcito;
+			productName = Chefcito;
+			productReference = 50D94655255DFEEF003CC3DA /* Chefcito.app */;
+			productType = "com.apple.product-type.application";
+		};
+		50D9466A255DFEF2003CC3DA /* ChefcitoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50D94682255DFEF3003CC3DA /* Build configuration list for PBXNativeTarget "ChefcitoTests" */;
+			buildPhases = (
+				50D94667255DFEF2003CC3DA /* Sources */,
+				50D94668255DFEF2003CC3DA /* Frameworks */,
+				50D94669255DFEF2003CC3DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50D9466D255DFEF2003CC3DA /* PBXTargetDependency */,
+			);
+			name = ChefcitoTests;
+			productName = ChefcitoTests;
+			productReference = 50D9466B255DFEF2003CC3DA /* ChefcitoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		50D94675255DFEF2003CC3DA /* ChefcitoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50D94685255DFEF3003CC3DA /* Build configuration list for PBXNativeTarget "ChefcitoUITests" */;
+			buildPhases = (
+				50D94672255DFEF2003CC3DA /* Sources */,
+				50D94673255DFEF2003CC3DA /* Frameworks */,
+				50D94674255DFEF2003CC3DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50D94678255DFEF2003CC3DA /* PBXTargetDependency */,
+			);
+			name = ChefcitoUITests;
+			productName = ChefcitoUITests;
+			productReference = 50D94676255DFEF2003CC3DA /* ChefcitoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		50D9464D255DFEEF003CC3DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1210;
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					50D94654255DFEEF003CC3DA = {
+						CreatedOnToolsVersion = 12.1;
+					};
+					50D9466A255DFEF2003CC3DA = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 50D94654255DFEEF003CC3DA;
+					};
+					50D94675255DFEF2003CC3DA = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 50D94654255DFEEF003CC3DA;
+					};
+				};
+			};
+			buildConfigurationList = 50D94650255DFEEF003CC3DA /* Build configuration list for PBXProject "Chefcito" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 50D9464C255DFEEF003CC3DA;
+			productRefGroup = 50D94656255DFEEF003CC3DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				50D94654255DFEEF003CC3DA /* Chefcito */,
+				50D9466A255DFEF2003CC3DA /* ChefcitoTests */,
+				50D94675255DFEF2003CC3DA /* ChefcitoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		50D94653255DFEEF003CC3DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50D94665255DFEF2003CC3DA /* LaunchScreen.storyboard in Resources */,
+				50D94662255DFEF2003CC3DA /* Assets.xcassets in Resources */,
+				50D94660255DFEEF003CC3DA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50D94669255DFEF2003CC3DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50D94674255DFEF2003CC3DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		50D94651255DFEEF003CC3DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50D9465D255DFEEF003CC3DA /* ViewController.swift in Sources */,
+				50D94659255DFEEF003CC3DA /* AppDelegate.swift in Sources */,
+				50D9465B255DFEEF003CC3DA /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50D94667255DFEF2003CC3DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50D94670255DFEF2003CC3DA /* ChefcitoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50D94672255DFEF2003CC3DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50D9467B255DFEF3003CC3DA /* ChefcitoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		50D9466D255DFEF2003CC3DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50D94654255DFEEF003CC3DA /* Chefcito */;
+			targetProxy = 50D9466C255DFEF2003CC3DA /* PBXContainerItemProxy */;
+		};
+		50D94678255DFEF2003CC3DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50D94654255DFEEF003CC3DA /* Chefcito */;
+			targetProxy = 50D94677255DFEF2003CC3DA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		50D9465E255DFEEF003CC3DA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50D9465F255DFEEF003CC3DA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		50D94663255DFEF2003CC3DA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50D94664255DFEF2003CC3DA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		50D9467D255DFEF3003CC3DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		50D9467E255DFEF3003CC3DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		50D94680255DFEF3003CC3DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VGUJZ39WN5;
+				INFOPLIST_FILE = Chefcito/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mx.com.mnava.Chefcito;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		50D94681255DFEF3003CC3DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VGUJZ39WN5;
+				INFOPLIST_FILE = Chefcito/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mx.com.mnava.Chefcito;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		50D94683255DFEF3003CC3DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VGUJZ39WN5;
+				INFOPLIST_FILE = ChefcitoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mx.com.mnava.ChefcitoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chefcito.app/Chefcito";
+			};
+			name = Debug;
+		};
+		50D94684255DFEF3003CC3DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VGUJZ39WN5;
+				INFOPLIST_FILE = ChefcitoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mx.com.mnava.ChefcitoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chefcito.app/Chefcito";
+			};
+			name = Release;
+		};
+		50D94686255DFEF3003CC3DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VGUJZ39WN5;
+				INFOPLIST_FILE = ChefcitoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mx.com.mnava.ChefcitoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Chefcito;
+			};
+			name = Debug;
+		};
+		50D94687255DFEF3003CC3DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VGUJZ39WN5;
+				INFOPLIST_FILE = ChefcitoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mx.com.mnava.ChefcitoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Chefcito;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		50D94650255DFEEF003CC3DA /* Build configuration list for PBXProject "Chefcito" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50D9467D255DFEF3003CC3DA /* Debug */,
+				50D9467E255DFEF3003CC3DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50D9467F255DFEF3003CC3DA /* Build configuration list for PBXNativeTarget "Chefcito" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50D94680255DFEF3003CC3DA /* Debug */,
+				50D94681255DFEF3003CC3DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50D94682255DFEF3003CC3DA /* Build configuration list for PBXNativeTarget "ChefcitoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50D94683255DFEF3003CC3DA /* Debug */,
+				50D94684255DFEF3003CC3DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50D94685255DFEF3003CC3DA /* Build configuration list for PBXNativeTarget "ChefcitoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50D94686255DFEF3003CC3DA /* Debug */,
+				50D94687255DFEF3003CC3DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 50D9464D255DFEEF003CC3DA /* Project object */;
+}
