@@ -79,17 +79,9 @@
 		50910792255EFD1A00FDC841 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5091079E255EFFB400FDC841 /* ViewUtils */,
 				50910793255EFD3D00FDC841 /* LoginViewController.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		5091079E255EFFB400FDC841 /* ViewUtils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewUtils;
 			sourceTree = "<group>";
 		};
 		50D9464C255DFEEF003CC3DA = {
