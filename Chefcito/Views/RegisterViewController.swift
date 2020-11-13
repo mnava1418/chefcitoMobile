@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class RegisterViewController: UIViewController {
 
@@ -39,8 +40,13 @@ class RegisterViewController: UIViewController {
         if validationResult == .valid {
             print(validationResult.rawValue)
         } else {
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             showAlert(title: "Error!", message: validationResult.rawValue)
         }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
     
     /*
