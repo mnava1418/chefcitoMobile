@@ -25,9 +25,9 @@ class LoginViewController: UIViewController {
     }
     
     private func setViewElements () {
-        btnLogin.layer.cornerRadius = 10
-        btnFaceBookLogin.layer.cornerRadius = 10
-        btnGoogleLogin.layer.cornerRadius = 10
+        btnLogin = ViewUIElements.setUIButton(button: btnLogin)
+        btnFaceBookLogin = ViewUIElements.setUIButton(button: btnFaceBookLogin)
+        btnGoogleLogin = ViewUIElements.setUIButton(button: btnGoogleLogin)
     }
     
     @IBAction func recoverPassword(_ sender: Any) {
