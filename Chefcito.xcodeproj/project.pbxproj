@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50910794255EFD3D00FDC841 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50910793255EFD3D00FDC841 /* LoginViewController.swift */; };
 		50D94659255DFEEF003CC3DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D94658255DFEEF003CC3DA /* AppDelegate.swift */; };
 		50D9465B255DFEEF003CC3DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9465A255DFEEF003CC3DA /* SceneDelegate.swift */; };
-		50D9465D255DFEEF003CC3DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9465C255DFEEF003CC3DA /* ViewController.swift */; };
 		50D94660255DFEEF003CC3DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D9465E255DFEEF003CC3DA /* Main.storyboard */; };
 		50D94662255DFEF2003CC3DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50D94661255DFEF2003CC3DA /* Assets.xcassets */; };
 		50D94665255DFEF2003CC3DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D94663255DFEF2003CC3DA /* LaunchScreen.storyboard */; };
@@ -35,10 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		50910793255EFD3D00FDC841 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		50D94655255DFEEF003CC3DA /* Chefcito.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chefcito.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D94658255DFEEF003CC3DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50D9465A255DFEEF003CC3DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		50D9465C255DFEEF003CC3DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		50D9465F255DFEEF003CC3DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		50D94661255DFEF2003CC3DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50D94664255DFEF2003CC3DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,6 +76,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50910792255EFD1A00FDC841 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5091079E255EFFB400FDC841 /* ViewUtils */,
+				50910793255EFD3D00FDC841 /* LoginViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5091079E255EFFB400FDC841 /* ViewUtils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewUtils;
+			sourceTree = "<group>";
+		};
 		50D9464C255DFEEF003CC3DA = {
 			isa = PBXGroup;
 			children = (
@@ -99,9 +115,9 @@
 		50D94657255DFEEF003CC3DA /* Chefcito */ = {
 			isa = PBXGroup;
 			children = (
+				50910792255EFD1A00FDC841 /* Views */,
 				50D94658255DFEEF003CC3DA /* AppDelegate.swift */,
 				50D9465A255DFEEF003CC3DA /* SceneDelegate.swift */,
-				50D9465C255DFEEF003CC3DA /* ViewController.swift */,
 				50D9465E255DFEEF003CC3DA /* Main.storyboard */,
 				50D94661255DFEF2003CC3DA /* Assets.xcassets */,
 				50D94663255DFEF2003CC3DA /* LaunchScreen.storyboard */,
@@ -258,7 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50D9465D255DFEEF003CC3DA /* ViewController.swift in Sources */,
+				50910794255EFD3D00FDC841 /* LoginViewController.swift in Sources */,
 				50D94659255DFEEF003CC3DA /* AppDelegate.swift in Sources */,
 				50D9465B255DFEEF003CC3DA /* SceneDelegate.swift in Sources */,
 			);
