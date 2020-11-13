@@ -9,13 +9,25 @@ import UIKit
 
 class RegisterViewController: UIViewController {
 
+    @IBOutlet weak var inputEmail: UITextField!
+    @IBOutlet weak var inputPassword: UITextField!
+    @IBOutlet weak var btnCreateUser: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setViewElements()
     }
     
-
+    private func setViewElements () {
+        btnCreateUser = ViewUIElements.setUIButton(button: btnCreateUser)
+    }
+    
+    @IBAction func createUser(_ sender: Any) {
+        print("Create User")
+    }
+    
     /*
     // MARK: - Navigation
 

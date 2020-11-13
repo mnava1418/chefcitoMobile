@@ -48,6 +48,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func register(_ sender: Any) {
         print("Register")
+        self.performSegue(withIdentifier: "showRegisterView", sender: nil)
     }
     
     /*
