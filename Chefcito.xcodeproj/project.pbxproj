@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		50910794255EFD3D00FDC841 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50910793255EFD3D00FDC841 /* LoginViewController.swift */; };
 		509107B7255F0F6600FDC841 /* ViewUIElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509107B6255F0F6600FDC841 /* ViewUIElements.swift */; };
+		509107BC255F10AC00FDC841 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509107BB255F10AC00FDC841 /* RegisterViewController.swift */; };
 		50D94659255DFEEF003CC3DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D94658255DFEEF003CC3DA /* AppDelegate.swift */; };
 		50D9465B255DFEEF003CC3DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9465A255DFEEF003CC3DA /* SceneDelegate.swift */; };
 		50D94660255DFEEF003CC3DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D9465E255DFEEF003CC3DA /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		50910793255EFD3D00FDC841 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		509107B6255F0F6600FDC841 /* ViewUIElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUIElements.swift; sourceTree = "<group>"; };
+		509107BB255F10AC00FDC841 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		50D94655255DFEEF003CC3DA /* Chefcito.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chefcito.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D94658255DFEEF003CC3DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50D9465A255DFEEF003CC3DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			children = (
 				509107B5255F0F4B00FDC841 /* ViewUtils */,
 				50910793255EFD3D00FDC841 /* LoginViewController.swift */,
+				509107BB255F10AC00FDC841 /* RegisterViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50910794255EFD3D00FDC841 /* LoginViewController.swift in Sources */,
+				509107BC255F10AC00FDC841 /* RegisterViewController.swift in Sources */,
 				509107B7255F0F6600FDC841 /* ViewUIElements.swift in Sources */,
 				50D94659255DFEEF003CC3DA /* AppDelegate.swift in Sources */,
 				50D9465B255DFEEF003CC3DA /* SceneDelegate.swift in Sources */,
