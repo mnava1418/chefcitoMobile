@@ -24,8 +24,23 @@ class RegisterViewController: UIViewController {
         btnCreateUser = ViewUIElements.setUIButton(button: btnCreateUser)
     }
     
+    private func showAlert(title: String, message: String) {
+        let messageScreen = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let continueAction = UIAlertAction(title: "Ok", style: .default)
+        
+        messageScreen.addAction(continueAction)
+        self.present(messageScreen, animated: true)
+    }
+    
     @IBAction func createUser(_ sender: Any) {
-        print("Create User")
+        let currentUser:UserModel = UserModel(email: inputEmail.text!, password: inputPassword.text!)
+        let validationResult:UserModel.UserError = currentUser.validateUser()
+        
+        if validationResult == .valid {
+            print(validationResult.rawValue)
+        } else {
+            showAlert(title: "Error!", message: validationResult.rawValue)
+        }
     }
     
     /*
