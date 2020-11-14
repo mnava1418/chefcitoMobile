@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,7 @@
 		509107B7255F0F6600FDC841 /* ViewUIElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509107B6255F0F6600FDC841 /* ViewUIElements.swift */; };
 		509107BC255F10AC00FDC841 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509107BB255F10AC00FDC841 /* RegisterViewController.swift */; };
 		509107C2255F194A00FDC841 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509107C1255F194A00FDC841 /* UserModel.swift */; };
+		50B563A12560608F00B29D0B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B563A02560608F00B29D0B /* NetworkService.swift */; };
 		50D94659255DFEEF003CC3DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D94658255DFEEF003CC3DA /* AppDelegate.swift */; };
 		50D9465B255DFEEF003CC3DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9465A255DFEEF003CC3DA /* SceneDelegate.swift */; };
 		50D94660255DFEEF003CC3DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D9465E255DFEEF003CC3DA /* Main.storyboard */; };
@@ -18,6 +19,9 @@
 		50D94665255DFEF2003CC3DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D94663255DFEF2003CC3DA /* LaunchScreen.storyboard */; };
 		50D94670255DFEF2003CC3DA /* ChefcitoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9466F255DFEF2003CC3DA /* ChefcitoTests.swift */; };
 		50D9467B255DFEF3003CC3DA /* ChefcitoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9467A255DFEF3003CC3DA /* ChefcitoUITests.swift */; };
+		521E0D0DB8E9A425149AFCF3 /* Pods_ChefcitoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD962940CB64D5EF1BAF5F42 /* Pods_ChefcitoTests.framework */; };
+		78ECA9522766AC8A2B158360 /* Pods_Chefcito_ChefcitoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8473325D87DBEEEAAA09066 /* Pods_Chefcito_ChefcitoUITests.framework */; };
+		E0DEFD194DCD565D2279EFBF /* Pods_Chefcito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 486AD1F943DFE82C16DD3DBC /* Pods_Chefcito.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,10 +42,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2106B92770C90040711B7B3D /* Pods-Chefcito-ChefcitoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chefcito-ChefcitoUITests.debug.xcconfig"; path = "Target Support Files/Pods-Chefcito-ChefcitoUITests/Pods-Chefcito-ChefcitoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3CFB10E726CCF05CDA226536 /* Pods-ChefcitoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChefcitoTests.debug.xcconfig"; path = "Target Support Files/Pods-ChefcitoTests/Pods-ChefcitoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		486AD1F943DFE82C16DD3DBC /* Pods_Chefcito.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chefcito.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50910793255EFD3D00FDC841 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		509107B6255F0F6600FDC841 /* ViewUIElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUIElements.swift; sourceTree = "<group>"; };
 		509107BB255F10AC00FDC841 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		509107C1255F194A00FDC841 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		50B563A02560608F00B29D0B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		50D94655255DFEEF003CC3DA /* Chefcito.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chefcito.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D94658255DFEEF003CC3DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50D9465A255DFEEF003CC3DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +63,12 @@
 		50D94676255DFEF2003CC3DA /* ChefcitoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChefcitoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D9467A255DFEF3003CC3DA /* ChefcitoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefcitoUITests.swift; sourceTree = "<group>"; };
 		50D9467C255DFEF3003CC3DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8473325D87DBEEEAAA09066 /* Pods_Chefcito_ChefcitoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chefcito_ChefcitoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD962940CB64D5EF1BAF5F42 /* Pods_ChefcitoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChefcitoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4FA67AC78884C65B7FE1FB3 /* Pods-Chefcito.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chefcito.debug.xcconfig"; path = "Target Support Files/Pods-Chefcito/Pods-Chefcito.debug.xcconfig"; sourceTree = "<group>"; };
+		CDBCDD4EA44092F7AE8A390C /* Pods-Chefcito-ChefcitoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chefcito-ChefcitoUITests.release.xcconfig"; path = "Target Support Files/Pods-Chefcito-ChefcitoUITests/Pods-Chefcito-ChefcitoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D143DE3B26FD2A975BC21727 /* Pods-Chefcito.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chefcito.release.xcconfig"; path = "Target Support Files/Pods-Chefcito/Pods-Chefcito.release.xcconfig"; sourceTree = "<group>"; };
+		D8EA1E1F2C66434F1DB2835C /* Pods-ChefcitoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChefcitoTests.release.xcconfig"; path = "Target Support Files/Pods-ChefcitoTests/Pods-ChefcitoTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0DEFD194DCD565D2279EFBF /* Pods_Chefcito.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				521E0D0DB8E9A425149AFCF3 /* Pods_ChefcitoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78ECA9522766AC8A2B158360 /* Pods_Chefcito_ChefcitoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +125,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		50B5639F2560607300B29D0B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				50B563A02560608F00B29D0B /* NetworkService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		50D9464C255DFEEF003CC3DA = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +140,8 @@
 				50D9466E255DFEF2003CC3DA /* ChefcitoTests */,
 				50D94679255DFEF2003CC3DA /* ChefcitoUITests */,
 				50D94656255DFEEF003CC3DA /* Products */,
+				ECAB1B28578ABE2BFBEB92E4 /* Pods */,
+				7B61F88E9EBC11928865F984 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +158,7 @@
 		50D94657255DFEEF003CC3DA /* Chefcito */ = {
 			isa = PBXGroup;
 			children = (
+				50B5639F2560607300B29D0B /* Services */,
 				509107C0255F193800FDC841 /* Models */,
 				50910792255EFD1A00FDC841 /* Views */,
 				50D94658255DFEEF003CC3DA /* AppDelegate.swift */,
@@ -161,6 +189,29 @@
 			path = ChefcitoUITests;
 			sourceTree = "<group>";
 		};
+		7B61F88E9EBC11928865F984 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				486AD1F943DFE82C16DD3DBC /* Pods_Chefcito.framework */,
+				A8473325D87DBEEEAAA09066 /* Pods_Chefcito_ChefcitoUITests.framework */,
+				AD962940CB64D5EF1BAF5F42 /* Pods_ChefcitoTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ECAB1B28578ABE2BFBEB92E4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C4FA67AC78884C65B7FE1FB3 /* Pods-Chefcito.debug.xcconfig */,
+				D143DE3B26FD2A975BC21727 /* Pods-Chefcito.release.xcconfig */,
+				2106B92770C90040711B7B3D /* Pods-Chefcito-ChefcitoUITests.debug.xcconfig */,
+				CDBCDD4EA44092F7AE8A390C /* Pods-Chefcito-ChefcitoUITests.release.xcconfig */,
+				3CFB10E726CCF05CDA226536 /* Pods-ChefcitoTests.debug.xcconfig */,
+				D8EA1E1F2C66434F1DB2835C /* Pods-ChefcitoTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -168,9 +219,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50D9467F255DFEF3003CC3DA /* Build configuration list for PBXNativeTarget "Chefcito" */;
 			buildPhases = (
+				B27C3C41C0C12AC5E6BF487C /* [CP] Check Pods Manifest.lock */,
 				50D94651255DFEEF003CC3DA /* Sources */,
 				50D94652255DFEEF003CC3DA /* Frameworks */,
 				50D94653255DFEEF003CC3DA /* Resources */,
+				2CBF6ED7B6C67D393FAFDA02 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -185,6 +238,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50D94682255DFEF3003CC3DA /* Build configuration list for PBXNativeTarget "ChefcitoTests" */;
 			buildPhases = (
+				729B02A3E39B029F421B05AA /* [CP] Check Pods Manifest.lock */,
 				50D94667255DFEF2003CC3DA /* Sources */,
 				50D94668255DFEF2003CC3DA /* Frameworks */,
 				50D94669255DFEF2003CC3DA /* Resources */,
@@ -203,9 +257,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50D94685255DFEF3003CC3DA /* Build configuration list for PBXNativeTarget "ChefcitoUITests" */;
 			buildPhases = (
+				F03E12B974B656E1BA46D74F /* [CP] Check Pods Manifest.lock */,
 				50D94672255DFEF2003CC3DA /* Sources */,
 				50D94673255DFEF2003CC3DA /* Frameworks */,
 				50D94674255DFEF2003CC3DA /* Resources */,
+				550B2FAB26A283626AB87593 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -286,6 +342,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2CBF6ED7B6C67D393FAFDA02 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chefcito/Pods-Chefcito-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chefcito/Pods-Chefcito-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Chefcito/Pods-Chefcito-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		550B2FAB26A283626AB87593 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chefcito-ChefcitoUITests/Pods-Chefcito-ChefcitoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chefcito-ChefcitoUITests/Pods-Chefcito-ChefcitoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Chefcito-ChefcitoUITests/Pods-Chefcito-ChefcitoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		729B02A3E39B029F421B05AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChefcitoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B27C3C41C0C12AC5E6BF487C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Chefcito-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F03E12B974B656E1BA46D74F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Chefcito-ChefcitoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		50D94651255DFEEF003CC3DA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -297,6 +456,7 @@
 				50D94659255DFEEF003CC3DA /* AppDelegate.swift in Sources */,
 				509107C2255F194A00FDC841 /* UserModel.swift in Sources */,
 				50D9465B255DFEEF003CC3DA /* SceneDelegate.swift in Sources */,
+				50B563A12560608F00B29D0B /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +629,7 @@
 		};
 		50D94680255DFEF3003CC3DA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4FA67AC78884C65B7FE1FB3 /* Pods-Chefcito.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -488,6 +649,7 @@
 		};
 		50D94681255DFEF3003CC3DA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D143DE3B26FD2A975BC21727 /* Pods-Chefcito.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -507,6 +669,7 @@
 		};
 		50D94683255DFEF3003CC3DA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CFB10E726CCF05CDA226536 /* Pods-ChefcitoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -529,6 +692,7 @@
 		};
 		50D94684255DFEF3003CC3DA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8EA1E1F2C66434F1DB2835C /* Pods-ChefcitoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -551,6 +715,7 @@
 		};
 		50D94686255DFEF3003CC3DA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2106B92770C90040711B7B3D /* Pods-Chefcito-ChefcitoUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -571,6 +736,7 @@
 		};
 		50D94687255DFEF3003CC3DA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDBCDD4EA44092F7AE8A390C /* Pods-Chefcito-ChefcitoUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

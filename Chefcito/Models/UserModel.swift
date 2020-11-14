@@ -58,4 +58,12 @@ struct UserModel {
     public func getEmail() -> String {
         return self.email
     }
+    
+    public func createUser(completion: @escaping (Int, Dictionary<String,Any>) -> Void) {
+        let body:[String: String] = ["email": email, "password": password]
+        NetWorkService.httpRequest(url: "/user/create", method: .post, parameters: body) {
+            (status, json) in
+            completion(status, json)
+        }
+    }
 }

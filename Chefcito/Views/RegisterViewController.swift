@@ -39,6 +39,10 @@ class RegisterViewController: UIViewController {
         
         if validationResult == .valid {
             print(validationResult.rawValue)
+            currentUser.createUser { (status, json) in
+                print(status)
+                print(json)
+            }
         } else {
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             showAlert(title: "Error!", message: validationResult.rawValue)
