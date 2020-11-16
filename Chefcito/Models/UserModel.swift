@@ -12,10 +12,10 @@ struct UserModel {
     private let password:String!
     
     public enum UserError: String {
-        case valid = "Usuario válido"
-        case mandatory = "Todos los campos son obligatorios"
-        case email = "Email no válido"
-        case password = "Password no válido (8 caracteres, 1 mayúscula y 1 número)"
+        case valid = "Usuario válido."
+        case mandatory = "Todos los campos son obligatorios."
+        case email = "Email no válido."
+        case password = "Password no válido (8 caracteres, 1 mayúscula y 1 número)."
     }
     
     init(email: String, password: String) {

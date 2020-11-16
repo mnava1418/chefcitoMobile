@@ -13,6 +13,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var inputEmail: UITextField!
     @IBOutlet weak var inputPassword: UITextField!
     @IBOutlet weak var btnCreateUser: UIButton!
+    @IBOutlet weak var txtError: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,18 +23,17 @@ class RegisterViewController: UIViewController {
     }
     
     private func setViewElements () {
+        txtError.isHidden = true
         btnCreateUser = ViewUIElements.setUIButton(button: btnCreateUser)
     }
     
-    private func showAlert(title: String, message: String) {
-        let messageScreen = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let continueAction = UIAlertAction(title: "Ok", style: .default)
-        
-        messageScreen.addAction(continueAction)
-        self.present(messageScreen, animated: true)
+    private func showError(message: String) {
+        txtError.isHidden = false
+        txtError.text = message
     }
     
     @IBAction func createUser(_ sender: Any) {
+        txtError.isHidden = true
         let currentUser:UserModel = UserModel(email: inputEmail.text!, password: inputPassword.text!)
         let validationResult:UserModel.UserError = currentUser.validateUser()
         
@@ -44,17 +44,17 @@ class RegisterViewController: UIViewController {
                     print("Entramos!")
                 case 400:
                     if let error = json["error"] {
-                        print(error)
+                        self.showError(message: error as! String)
                     } else {
-                        print(Constants.GENERIC_ERROR)
+                        self.showError(message: Constants.GENERIC_ERROR)
                     }
                 default:
-                    print(Constants.GENERIC_ERROR)
+                    self.showError(message: Constants.GENERIC_ERROR)
                 }
             }
         } else {
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-            showAlert(title: "Error!", message: validationResult.rawValue)
+            showError(message: validationResult.rawValue)
         }
     }
     

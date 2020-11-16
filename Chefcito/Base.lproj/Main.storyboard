@@ -212,7 +212,7 @@
                         <outlet property="btnLogin" destination="Eqs-mf-WIW" id="Fd7-ad-cnL"/>
                         <outlet property="inputEmail" destination="YtF-oj-V0X" id="g1k-D8-PTl"/>
                         <outlet property="inputPassword" destination="JJB-Yk-Kn8" id="CYa-vb-Wpw"/>
-                        <segue destination="PVt-r1-bm2" kind="presentation" identifier="showRegisterView" modalPresentationStyle="formSheet" modalTransitionStyle="coverVertical" id="JnY-Xr-gG2"/>
+                        <segue destination="PVt-r1-bm2" kind="presentation" identifier="showRegisterView" modalPresentationStyle="pageSheet" modalTransitionStyle="coverVertical" id="JnY-Xr-gG2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -230,7 +230,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="registerBackground" translatesAutoresizingMaskIntoConstraints="NO" id="GzI-u6-aE9">
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="838"/>
                             </imageView>
-                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6CC-x4-MEd">
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6CC-x4-MEd">
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="838"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -250,6 +250,15 @@
                                     <constraint firstAttribute="height" constant="24" id="ewa-fO-z0e"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kz2-SP-20P">
+                                <rect key="frame" x="80" y="472" width="268" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="Twa-d2-Xap"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -299,6 +308,9 @@
                             <constraint firstItem="GzI-u6-aE9" firstAttribute="top" secondItem="355-Fz-tP6" secondAttribute="top" id="FUR-o1-JqD"/>
                             <constraint firstItem="355-Fz-tP6" firstAttribute="bottom" secondItem="GzI-u6-aE9" secondAttribute="bottom" id="GSF-md-lHi"/>
                             <constraint firstItem="KU8-Ce-slU" firstAttribute="centerX" secondItem="CNg-OF-gpe" secondAttribute="centerX" id="Mof-OI-YeX"/>
+                            <constraint firstItem="355-Fz-tP6" firstAttribute="trailing" secondItem="Kz2-SP-20P" secondAttribute="trailing" constant="80" id="Mv1-sM-Zed">
+                                <variation key="widthClass=regular" constant="136"/>
+                            </constraint>
                             <constraint firstItem="KU8-Ce-slU" firstAttribute="top" secondItem="OLr-I6-21G" secondAttribute="bottom" constant="24" id="N3G-V4-7wr"/>
                             <constraint firstItem="355-Fz-tP6" firstAttribute="trailing" secondItem="Olu-9V-SNM" secondAttribute="trailing" constant="80" id="NWs-B5-L4Z">
                                 <variation key="widthClass=regular" constant="136"/>
@@ -318,6 +330,9 @@
                             </constraint>
                             <constraint firstItem="Olu-9V-SNM" firstAttribute="top" secondItem="mSk-qq-V8h" secondAttribute="bottom" constant="8" id="W7v-Qe-wwo"/>
                             <constraint firstItem="355-Fz-tP6" firstAttribute="trailing" secondItem="GzI-u6-aE9" secondAttribute="trailing" id="WaC-12-9hQ"/>
+                            <constraint firstItem="Kz2-SP-20P" firstAttribute="leading" secondItem="355-Fz-tP6" secondAttribute="leading" constant="80" id="YF6-Of-1CR">
+                                <variation key="widthClass=regular" constant="136"/>
+                            </constraint>
                             <constraint firstItem="355-Fz-tP6" firstAttribute="trailing" secondItem="6CC-x4-MEd" secondAttribute="trailing" id="b1N-wd-Zrm"/>
                             <constraint firstItem="6CC-x4-MEd" firstAttribute="leading" secondItem="355-Fz-tP6" secondAttribute="leading" id="cBE-MU-iVI"/>
                             <constraint firstItem="OLr-I6-21G" firstAttribute="leading" secondItem="355-Fz-tP6" secondAttribute="leading" constant="80" id="co0-hO-bl4">
@@ -328,6 +343,7 @@
                             <constraint firstItem="mSk-qq-V8h" firstAttribute="leading" secondItem="355-Fz-tP6" secondAttribute="leading" constant="80" id="hD2-4z-N1J">
                                 <variation key="widthClass=regular" constant="136"/>
                             </constraint>
+                            <constraint firstItem="Kz2-SP-20P" firstAttribute="top" secondItem="KU8-Ce-slU" secondAttribute="bottom" constant="16" id="taF-dY-dsQ"/>
                             <constraint firstItem="6CC-x4-MEd" firstAttribute="top" secondItem="355-Fz-tP6" secondAttribute="top" id="w0u-2z-AKF"/>
                             <constraint firstItem="355-Fz-tP6" firstAttribute="trailing" secondItem="KU8-Ce-slU" secondAttribute="trailing" constant="80" id="wc6-ak-qWn">
                                 <variation key="widthClass=regular" constant="136"/>
@@ -338,6 +354,7 @@
                         <outlet property="btnCreateUser" destination="KU8-Ce-slU" id="5Jn-8a-KbL"/>
                         <outlet property="inputEmail" destination="Olu-9V-SNM" id="Oi9-Wl-PDP"/>
                         <outlet property="inputPassword" destination="OLr-I6-21G" id="f2j-6h-S47"/>
+                        <outlet property="txtError" destination="Kz2-SP-20P" id="ddX-5h-N97"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbi-bT-X6j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
