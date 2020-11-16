@@ -47,7 +47,7 @@ class RegisterViewController: UIViewController {
                 
                 switch status {
                 case 200:
-                    print("Entramos!")
+                    self.performSegue(withIdentifier: "showMainApp", sender: nil)
                 case 400:
                     if let error = json["error"] {
                         self.showError(message: error as! String)

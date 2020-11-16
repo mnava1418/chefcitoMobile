@@ -219,6 +219,78 @@
             </objects>
             <point key="canvasLocation" x="140.18691588785046" y="123.75809935205184"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Yla-xZ-tm1">
+            <objects>
+                <tabBarController id="Zrm-yL-ZU2" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="hYJ-98-nGZ"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tci-tZ-UCo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="rUd-ee-6Lq" kind="relationship" relationship="viewControllers" id="qRh-ht-csN"/>
+                        <segue destination="8xl-2h-1TC" kind="relationship" relationship="viewControllers" id="JjN-4N-EhX"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Qb-1h-Nz6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1302" y="124"/>
+        </scene>
+        <!--Cuenta-->
+        <scene sceneID="IQh-Aa-1k7">
+            <objects>
+                <viewController id="8xl-2h-1TC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CtH-Wk-B5h">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9l-Av-WgW">
+                                <rect key="frame" x="189.66666666666666" y="452.66666666666669" width="49" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tUW-Ml-GkL"/>
+                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="a9l-Av-WgW" firstAttribute="centerX" secondItem="CtH-Wk-B5h" secondAttribute="centerX" id="bpu-Ge-2YW"/>
+                            <constraint firstItem="a9l-Av-WgW" firstAttribute="centerY" secondItem="CtH-Wk-B5h" secondAttribute="centerY" id="oEe-pa-VGP"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Cuenta" image="person.fill" catalog="system" id="o6B-KG-N6l"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PDO-bj-wp9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2243" y="544"/>
+        </scene>
+        <!--Chefcito-->
+        <scene sceneID="K4N-n8-7fS">
+            <objects>
+                <navigationController id="rUd-ee-6Lq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Inicio" image="house.fill" catalog="system" id="DtW-gi-Py3"/>
+                    <navigationItem key="navigationItem" title="Chefcito" id="tXI-rL-PfQ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="0dz-IN-7w3">
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="y12-kg-HHG" kind="relationship" relationship="rootViewController" id="EfY-hd-Aho"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UvI-vT-hpC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2244" y="-384"/>
+        </scene>
         <!--Register View Controller-->
         <scene sceneID="WEu-BI-oCT">
             <objects>
@@ -366,15 +438,46 @@
                         <outlet property="inputEmail" destination="Olu-9V-SNM" id="Oi9-Wl-PDP"/>
                         <outlet property="inputPassword" destination="OLr-I6-21G" id="f2j-6h-S47"/>
                         <outlet property="txtError" destination="Kz2-SP-20P" id="ddX-5h-N97"/>
+                        <segue destination="Zrm-yL-ZU2" kind="presentation" identifier="showMainApp" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="4lB-Oc-oGv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbi-bT-X6j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1122.8971962616822" y="849.46004319654435"/>
+            <point key="canvasLocation" x="544" y="848"/>
+        </scene>
+        <!--Chefcito-->
+        <scene sceneID="Qir-Wk-pEN">
+            <objects>
+                <viewController id="y12-kg-HHG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QSf-9R-3fQ">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="838"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ef-Om-hOr">
+                                <rect key="frame" x="195.66666666666666" y="409" width="36.666666666666657" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="z98-oB-cTS"/>
+                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="5ef-Om-hOr" firstAttribute="centerY" secondItem="QSf-9R-3fQ" secondAttribute="centerY" id="cDg-TM-gd4"/>
+                            <constraint firstItem="5ef-Om-hOr" firstAttribute="centerX" secondItem="QSf-9R-3fQ" secondAttribute="centerX" id="ieH-H4-AJp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Chefcito" id="N2S-fX-av6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m9b-5g-3Ar" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3121.9626168224299" y="-384.23326133909291"/>
         </scene>
     </scenes>
     <resources>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="loginBackground" width="1920" height="2880"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="registerBackground" width="4000" height="6000"/>
     </resources>
 </document>
