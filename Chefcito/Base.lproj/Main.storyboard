@@ -296,6 +296,14 @@
                                     <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v0d-y2-0nj"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="voW-2T-Dpm">
+                                <rect key="frame" x="198" y="472" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="OTu-GR-XxU"/>
+                                    <constraint firstAttribute="width" constant="32" id="RY0-64-ivO"/>
+                                </constraints>
+                                <color key="color" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="355-Fz-tP6"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -304,9 +312,11 @@
                                 <variation key="widthClass=regular" constant="136"/>
                             </constraint>
                             <constraint firstItem="KU8-Ce-slU" firstAttribute="centerY" secondItem="CNg-OF-gpe" secondAttribute="centerY" id="2Gd-be-Dp0"/>
+                            <constraint firstItem="voW-2T-Dpm" firstAttribute="centerX" secondItem="CNg-OF-gpe" secondAttribute="centerX" id="2fx-Bw-r0Z"/>
                             <constraint firstItem="OLr-I6-21G" firstAttribute="top" secondItem="9Zo-I2-nCU" secondAttribute="bottom" constant="8" id="CAD-QR-yPJ"/>
                             <constraint firstItem="GzI-u6-aE9" firstAttribute="top" secondItem="355-Fz-tP6" secondAttribute="top" id="FUR-o1-JqD"/>
                             <constraint firstItem="355-Fz-tP6" firstAttribute="bottom" secondItem="GzI-u6-aE9" secondAttribute="bottom" id="GSF-md-lHi"/>
+                            <constraint firstItem="voW-2T-Dpm" firstAttribute="top" secondItem="KU8-Ce-slU" secondAttribute="bottom" constant="16" id="JbG-mc-Fip"/>
                             <constraint firstItem="KU8-Ce-slU" firstAttribute="centerX" secondItem="CNg-OF-gpe" secondAttribute="centerX" id="Mof-OI-YeX"/>
                             <constraint firstItem="355-Fz-tP6" firstAttribute="trailing" secondItem="Kz2-SP-20P" secondAttribute="trailing" constant="80" id="Mv1-sM-Zed">
                                 <variation key="widthClass=regular" constant="136"/>
@@ -351,6 +361,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="voW-2T-Dpm" id="FHM-LP-DT7"/>
                         <outlet property="btnCreateUser" destination="KU8-Ce-slU" id="5Jn-8a-KbL"/>
                         <outlet property="inputEmail" destination="Olu-9V-SNM" id="Oi9-Wl-PDP"/>
                         <outlet property="inputPassword" destination="OLr-I6-21G" id="f2j-6h-S47"/>
@@ -359,7 +370,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbi-bT-X6j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1123" y="850"/>
+            <point key="canvasLocation" x="1122.8971962616822" y="849.46004319654435"/>
         </scene>
     </scenes>
     <resources>

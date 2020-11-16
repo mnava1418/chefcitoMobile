@@ -14,6 +14,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var inputPassword: UITextField!
     @IBOutlet weak var btnCreateUser: UIButton!
     @IBOutlet weak var txtError: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,17 +29,22 @@ class RegisterViewController: UIViewController {
     }
     
     private func showError(message: String) {
+        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         txtError.isHidden = false
         txtError.text = message
     }
     
     @IBAction func createUser(_ sender: Any) {
         txtError.isHidden = true
+        activityIndicator.startAnimating()
+        
         let currentUser:UserModel = UserModel(email: inputEmail.text!, password: inputPassword.text!)
         let validationResult:UserModel.UserError = currentUser.validateUser()
         
         if validationResult == .valid {
             currentUser.createUser { (status, json) in
+                self.activityIndicator.stopAnimating()
+                
                 switch status {
                 case 200:
                     print("Entramos!")
@@ -53,7 +59,7 @@ class RegisterViewController: UIViewController {
                 }
             }
         } else {
-            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+            activityIndicator.stopAnimating()
             showError(message: validationResult.rawValue)
         }
     }
