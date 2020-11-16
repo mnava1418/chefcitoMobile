@@ -213,6 +213,7 @@
                         <outlet property="inputEmail" destination="YtF-oj-V0X" id="g1k-D8-PTl"/>
                         <outlet property="inputPassword" destination="JJB-Yk-Kn8" id="CYa-vb-Wpw"/>
                         <segue destination="PVt-r1-bm2" kind="presentation" identifier="showRegisterView" modalPresentationStyle="pageSheet" modalTransitionStyle="coverVertical" id="JnY-Xr-gG2"/>
+                        <segue destination="Zrm-yL-ZU2" kind="presentation" identifier="showMainAppLogin" modalPresentationStyle="fullScreen" id="dOf-sg-ka4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -238,7 +239,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Qb-1h-Nz6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1302" y="124"/>
+            <point key="canvasLocation" x="1298" y="142"/>
         </scene>
         <!--Cuenta-->
         <scene sceneID="IQh-Aa-1k7">
@@ -438,7 +439,7 @@
                         <outlet property="inputEmail" destination="Olu-9V-SNM" id="Oi9-Wl-PDP"/>
                         <outlet property="inputPassword" destination="OLr-I6-21G" id="f2j-6h-S47"/>
                         <outlet property="txtError" destination="Kz2-SP-20P" id="ddX-5h-N97"/>
-                        <segue destination="Zrm-yL-ZU2" kind="presentation" identifier="showMainApp" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="4lB-Oc-oGv"/>
+                        <segue destination="Zrm-yL-ZU2" kind="presentation" identifier="showMainAppRegister" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="4lB-Oc-oGv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbi-bT-X6j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -474,6 +475,9 @@
             <point key="canvasLocation" x="3121.9626168224299" y="-384.23326133909291"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="dOf-sg-ka4"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="loginBackground" width="1920" height="2880"/>

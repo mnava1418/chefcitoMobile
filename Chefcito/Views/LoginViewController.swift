@@ -24,6 +24,13 @@ class LoginViewController: UIViewController {
         setViewElements()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if UserModel.tokenExists() {
+            self.performSegue(withIdentifier: "showMainAppLogin", sender: nil)
+        }
+    }
+    
     private func setViewElements () {
         btnLogin = ViewUIElements.setUIButton(button: btnLogin)
         btnFaceBookLogin = ViewUIElements.setUIButton(button: btnFaceBookLogin)
@@ -47,7 +54,6 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func register(_ sender: Any) {
-        print("Register")
         self.performSegue(withIdentifier: "showRegisterView", sender: nil)
     }
     
