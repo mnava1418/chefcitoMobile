@@ -47,7 +47,8 @@ class RegisterViewController: UIViewController {
                 
                 switch status {
                 case 200:
-                    self.performSegue(withIdentifier: "showMainApp", sender: nil)
+                    currentUser.saveToken(token: json["token"] as! String)
+                    self.performSegue(withIdentifier: "showMainAppRegister", sender: nil)
                 case 400:
                     if let error = json["error"] {
                         self.showError(message: error as! String)

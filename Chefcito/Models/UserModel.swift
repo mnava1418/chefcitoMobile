@@ -66,4 +66,18 @@ struct UserModel {
             completion(status, json)
         }
     }
+    
+    public func saveToken(token: String) {
+        let key = Constants.TOKEN_KEY
+        UserDefaults.standard.set(token, forKey: key)
+    }
+    
+    public static func tokenExists() -> Bool {
+        let key = Constants.TOKEN_KEY
+        if UserDefaults.standard.string(forKey: key) != nil{
+            return true
+        }
+        
+        return false
+    }
 }
