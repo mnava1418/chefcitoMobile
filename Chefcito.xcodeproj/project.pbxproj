@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		506337522562E1A0009E336E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506337512562E1A0009E336E /* Constants.swift */; };
 		50910794255EFD3D00FDC841 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50910793255EFD3D00FDC841 /* LoginViewController.swift */; };
 		509107B7255F0F6600FDC841 /* ViewUIElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509107B6255F0F6600FDC841 /* ViewUIElements.swift */; };
 		509107BC255F10AC00FDC841 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509107BB255F10AC00FDC841 /* RegisterViewController.swift */; };
@@ -45,6 +46,7 @@
 		2106B92770C90040711B7B3D /* Pods-Chefcito-ChefcitoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chefcito-ChefcitoUITests.debug.xcconfig"; path = "Target Support Files/Pods-Chefcito-ChefcitoUITests/Pods-Chefcito-ChefcitoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3CFB10E726CCF05CDA226536 /* Pods-ChefcitoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChefcitoTests.debug.xcconfig"; path = "Target Support Files/Pods-ChefcitoTests/Pods-ChefcitoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		486AD1F943DFE82C16DD3DBC /* Pods_Chefcito.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chefcito.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		506337512562E1A0009E336E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		50910793255EFD3D00FDC841 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		509107B6255F0F6600FDC841 /* ViewUIElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUIElements.swift; sourceTree = "<group>"; };
 		509107BB255F10AC00FDC841 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		506337502562E192009E336E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				506337512562E1A0009E336E /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		50910792255EFD1A00FDC841 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +168,7 @@
 		50D94657255DFEEF003CC3DA /* Chefcito */ = {
 			isa = PBXGroup;
 			children = (
+				506337502562E192009E336E /* Utils */,
 				50B5639F2560607300B29D0B /* Services */,
 				509107C0255F193800FDC841 /* Models */,
 				50910792255EFD1A00FDC841 /* Views */,
@@ -457,6 +468,7 @@
 				509107C2255F194A00FDC841 /* UserModel.swift in Sources */,
 				50D9465B255DFEEF003CC3DA /* SceneDelegate.swift in Sources */,
 				50B563A12560608F00B29D0B /* NetworkService.swift in Sources */,
+				506337522562E1A0009E336E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -38,10 +38,19 @@ class RegisterViewController: UIViewController {
         let validationResult:UserModel.UserError = currentUser.validateUser()
         
         if validationResult == .valid {
-            print(validationResult.rawValue)
             currentUser.createUser { (status, json) in
-                print(status)
-                print(json)
+                switch status {
+                case 200:
+                    print("Entramos!")
+                case 400:
+                    if let error = json["error"] {
+                        print(error)
+                    } else {
+                        print(Constants.GENERIC_ERROR)
+                    }
+                default:
+                    print(Constants.GENERIC_ERROR)
+                }
             }
         } else {
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
