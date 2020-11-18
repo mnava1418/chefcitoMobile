@@ -22,6 +22,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="892"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWl-wT-ZCZ">
+                                <rect key="frame" x="80" y="559" width="268" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="lOf-3f-FTv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YtF-oj-V0X">
                                 <rect key="frame" x="80" y="311" width="268" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -68,7 +77,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9n-pd-d9D">
-                                <rect key="frame" x="80" y="599" width="268" height="40"/>
+                                <rect key="frame" x="80" y="615" width="268" height="40"/>
                                 <color key="backgroundColor" red="0.23859065769999999" green="0.34698230029999999" blue="0.60394960639999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="gsf-Wr-D7c"/>
@@ -82,7 +91,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QGK-0f-SBw">
-                                <rect key="frame" x="80" y="663" width="268" height="40"/>
+                                <rect key="frame" x="80" y="679" width="268" height="40"/>
                                 <color key="backgroundColor" red="0.79664999250000001" green="0.25304582720000002" blue="0.13717567920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Oci-Zb-hHk"/>
@@ -139,6 +148,14 @@
                                     <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1bw-k4-Xda"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="EZG-yn-6o7">
+                                <rect key="frame" x="198" y="559" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="pgN-ih-QYD"/>
+                                    <constraint firstAttribute="width" constant="32" id="sHI-SD-NBg"/>
+                                </constraints>
+                                <color key="color" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -154,22 +171,30 @@
                                 <variation key="widthClass=regular" constant="136"/>
                             </constraint>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rjA-vq-nv9" secondAttribute="trailing" id="CmX-PQ-sQs"/>
+                            <constraint firstItem="EZG-yn-6o7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ESv-i9-DfC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jWl-wT-ZCZ" secondAttribute="trailing" constant="80" id="FII-46-ep4">
+                                <variation key="widthClass=regular" constant="136"/>
+                            </constraint>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9ck-VK-Dxh" secondAttribute="bottom" constant="8" id="Fvt-Ml-SZQ"/>
                             <constraint firstItem="QGK-0f-SBw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="GLX-zg-sRL">
                                 <variation key="widthClass=regular" constant="136"/>
                             </constraint>
+                            <constraint firstItem="EZG-yn-6o7" firstAttribute="top" secondItem="Eqs-mf-WIW" secondAttribute="bottom" constant="16" id="H1J-tL-Opd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QGK-0f-SBw" secondAttribute="trailing" constant="80" id="HVO-ow-wv6">
                                 <variation key="widthClass=regular" constant="136"/>
                             </constraint>
                             <constraint firstItem="i9n-pd-d9D" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="K8c-R9-fZD">
                                 <variation key="widthClass=regular" constant="136"/>
                             </constraint>
-                            <constraint firstItem="i9n-pd-d9D" firstAttribute="top" secondItem="Eqs-mf-WIW" secondAttribute="bottom" constant="56" id="NxM-Vt-PUS"/>
+                            <constraint firstItem="i9n-pd-d9D" firstAttribute="top" secondItem="Eqs-mf-WIW" secondAttribute="bottom" constant="72" id="NxM-Vt-PUS"/>
                             <constraint firstItem="JJB-Yk-Kn8" firstAttribute="top" secondItem="0SU-Ug-rCo" secondAttribute="bottom" constant="8" id="Osd-ob-L7g"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0EM-UP-izQ" secondAttribute="trailing" symbolic="YES" id="TEa-f6-i40"/>
                             <constraint firstItem="QGK-0f-SBw" firstAttribute="top" secondItem="i9n-pd-d9D" secondAttribute="bottom" constant="24" id="YDK-bj-rRk"/>
                             <constraint firstItem="9ck-VK-Dxh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Z3f-Px-J56"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9ck-VK-Dxh" secondAttribute="trailing" constant="8" id="b2M-gW-4Up"/>
+                            <constraint firstItem="jWl-wT-ZCZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="bSY-Rz-pH8">
+                                <variation key="widthClass=regular" constant="136"/>
+                            </constraint>
                             <constraint firstItem="23X-bA-xqn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="c1m-lI-RFD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="23X-bA-xqn" secondAttribute="trailing" id="cMr-DY-Zu4"/>
                             <constraint firstItem="YtF-oj-V0X" firstAttribute="top" secondItem="0EM-UP-izQ" secondAttribute="bottom" constant="8" id="cwt-N3-MJe"/>
@@ -185,6 +210,7 @@
                                 <variation key="widthClass=regular" constant="136"/>
                             </constraint>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rjA-vq-nv9" secondAttribute="bottom" id="o8o-st-mZB"/>
+                            <constraint firstItem="jWl-wT-ZCZ" firstAttribute="top" secondItem="Eqs-mf-WIW" secondAttribute="bottom" constant="16" id="qxu-sV-CXg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JJB-Yk-Kn8" secondAttribute="trailing" constant="80" id="r2O-cL-5XY">
                                 <variation key="widthClass=regular" constant="136"/>
                             </constraint>
@@ -207,11 +233,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="EZG-yn-6o7" id="OAu-MZ-eYY"/>
                         <outlet property="btnFaceBookLogin" destination="i9n-pd-d9D" id="Mep-6k-nFb"/>
                         <outlet property="btnGoogleLogin" destination="QGK-0f-SBw" id="EuF-l9-8Yw"/>
                         <outlet property="btnLogin" destination="Eqs-mf-WIW" id="Fd7-ad-cnL"/>
                         <outlet property="inputEmail" destination="YtF-oj-V0X" id="g1k-D8-PTl"/>
                         <outlet property="inputPassword" destination="JJB-Yk-Kn8" id="CYa-vb-Wpw"/>
+                        <outlet property="txtError" destination="jWl-wT-ZCZ" id="HlZ-9p-gJa"/>
                         <segue destination="PVt-r1-bm2" kind="presentation" identifier="showRegisterView" modalPresentationStyle="pageSheet" modalTransitionStyle="coverVertical" id="JnY-Xr-gG2"/>
                         <segue destination="Zrm-yL-ZU2" kind="presentation" identifier="showMainAppLogin" modalPresentationStyle="fullScreen" id="dOf-sg-ka4"/>
                     </connections>
@@ -455,7 +483,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ef-Om-hOr">
-                                <rect key="frame" x="195.66666666666666" y="409" width="36.666666666666657" height="20.333333333333314"/>
+                                <rect key="frame" x="195.66666666666666" y="409" width="37" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -476,7 +504,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dOf-sg-ka4"/>
+        <segue reference="4lB-Oc-oGv"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house.fill" catalog="system" width="128" height="106"/>

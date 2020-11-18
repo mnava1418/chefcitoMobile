@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class LoginViewController: UIViewController {
     
@@ -16,6 +17,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var inputEmail: UITextField!
     @IBOutlet weak var inputPassword: UITextField!
     
+    @IBOutlet weak var txtError: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +34,14 @@ class LoginViewController: UIViewController {
         }
     }
     
+    private func showError(message: String) {
+        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+        txtError.isHidden = false
+        txtError.text = message
+    }
+    
     private func setViewElements () {
+        txtError.isHidden = true
         btnLogin = ViewUIElements.setUIButton(button: btnLogin)
         btnFaceBookLogin = ViewUIElements.setUIButton(button: btnFaceBookLogin)
         btnGoogleLogin = ViewUIElements.setUIButton(button: btnGoogleLogin)
@@ -42,7 +52,34 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func login(_ sender: Any) {
-        print("Login")
+        txtError.isHidden = true
+        activityIndicator.startAnimating()
+        
+        let currentUser:UserModel = UserModel(email: inputEmail.text!, password: inputPassword.text!)
+        let validationResult:UserModel.UserError = currentUser.validateUser()
+        
+        if validationResult == .valid {
+            currentUser.login { (status, json) in
+                self.activityIndicator.stopAnimating()
+                
+                switch status {
+                case 200:
+                    currentUser.saveToken(token: json["token"] as! String)
+                    self.performSegue(withIdentifier: "showMainAppLogin", sender: nil)
+                case 400:
+                    if let error = json["error"] {
+                        self.showError(message: error as! String)
+                    } else {
+                        self.showError(message: Constants.GENERIC_ERROR)
+                    }
+                default:
+                    self.showError(message: Constants.GENERIC_ERROR)
+                }
+            }
+        } else {
+            activityIndicator.stopAnimating()
+            showError(message: validationResult.rawValue)
+        }
     }
     
     @IBAction func faceBookLogin(_ sender: Any) {

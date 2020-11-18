@@ -67,6 +67,13 @@ struct UserModel {
         }
     }
     
+    public func login(completion: @escaping (Int, Dictionary<String,Any>) -> Void) {
+        let body:[String: String] = ["email": email, "password": password]
+        NetWorkService.httpRequest(url: "/user/login", method: .post, parameters: body) { (status, json) in
+            completion(status, json)
+        }
+    }
+    
     public func saveToken(token: String) {
         let key = Constants.TOKEN_KEY
         UserDefaults.standard.set(token, forKey: key)
