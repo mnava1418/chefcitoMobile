@@ -7,12 +7,11 @@
 
 import UIKit
 import AudioToolbox
+import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
-    
+   
     @IBOutlet weak var btnLogin: UIButton!
-    @IBOutlet weak var btnFaceBookLogin: UIButton!
-    @IBOutlet weak var btnGoogleLogin: UIButton!
     
     @IBOutlet weak var inputEmail: UITextField!
     @IBOutlet weak var inputPassword: UITextField!
@@ -43,8 +42,16 @@ class LoginViewController: UIViewController {
     private func setViewElements () {
         txtError.isHidden = true
         btnLogin = ViewUIElements.setUIButton(button: btnLogin)
-        btnFaceBookLogin = ViewUIElements.setUIButton(button: btnFaceBookLogin)
-        btnGoogleLogin = ViewUIElements.setUIButton(button: btnGoogleLogin)
+        
+        //FaceBook login btn
+        let btnFaceBook = FBLoginButton()
+        btnFaceBook.delegate = self
+        
+        view.addSubview(btnFaceBook)
+        btnFaceBook.translatesAutoresizingMaskIntoConstraints = false
+        btnFaceBook.topAnchor.constraint(equalTo: btnLogin.bottomAnchor, constant: 80).isActive = true
+        btnFaceBook.leadingAnchor.constraint(equalTo: btnLogin.leadingAnchor).isActive = true
+        btnFaceBook.trailingAnchor.constraint(equalTo: btnLogin.trailingAnchor).isActive = true
     }
     
     @IBAction func recoverPassword(_ sender: Any) {
@@ -82,14 +89,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @IBAction func faceBookLogin(_ sender: Any) {
-        print("FaceBook Login")
-    }
-    
-    @IBAction func googleLogin(_ sender: Any) {
-        print("Google Login")
-    }
-    
     @IBAction func register(_ sender: Any) {
         self.performSegue(withIdentifier: "showRegisterView", sender: nil)
     }
@@ -97,7 +96,7 @@ class LoginViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+   
     /*
     // MARK: - Navigation
 
@@ -107,5 +106,24 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+}
 
+// MARK: LoginButtonDelegate
+extension LoginViewController: LoginButtonDelegate {
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        
+        if error != nil {
+            showError(message: Constants.GENERIC_ERROR)
+        } else if let currentResult = result {
+            if currentResult.isCancelled {
+                showError(message: "Has cancelado el inicio de sesión.")
+            } else {
+                self.performSegue(withIdentifier: "showMainAppLogin", sender: nil)
+            }
+        }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        print("Me voy!!")
+    }
 }

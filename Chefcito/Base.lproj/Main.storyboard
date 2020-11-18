@@ -76,34 +76,6 @@
                                     <action selector="register:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iOU-Lc-OH1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9n-pd-d9D">
-                                <rect key="frame" x="80" y="615" width="268" height="40"/>
-                                <color key="backgroundColor" red="0.23859065769999999" green="0.34698230029999999" blue="0.60394960639999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="gsf-Wr-D7c"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <state key="normal" title="Login with Facebook">
-                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="faceBookLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d96-GP-ENm"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QGK-0f-SBw">
-                                <rect key="frame" x="80" y="679" width="268" height="40"/>
-                                <color key="backgroundColor" red="0.79664999250000001" green="0.25304582720000002" blue="0.13717567920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Oci-Zb-hHk"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <state key="normal" title="Login with Google">
-                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="googleLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dE5-84-TNk"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0EM-UP-izQ">
                                 <rect key="frame" x="80" y="279" width="80" height="24"/>
                                 <constraints>
@@ -162,9 +134,6 @@
                         <constraints>
                             <constraint firstItem="qBC-Iv-9Wj" firstAttribute="top" secondItem="JJB-Yk-Kn8" secondAttribute="bottom" constant="8" id="2vv-MV-45i"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4jP-4t-s4T" secondAttribute="trailing" constant="80" id="54K-mx-0Bd"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="i9n-pd-d9D" secondAttribute="trailing" constant="80" id="8g8-99-Wu1">
-                                <variation key="widthClass=regular" constant="136"/>
-                            </constraint>
                             <constraint firstItem="23X-bA-xqn" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="9Qh-6j-oE4"/>
                             <constraint firstItem="qBC-Iv-9Wj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ArQ-0t-3sA"/>
                             <constraint firstItem="YtF-oj-V0X" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="AwN-AW-uaf">
@@ -176,20 +145,9 @@
                                 <variation key="widthClass=regular" constant="136"/>
                             </constraint>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9ck-VK-Dxh" secondAttribute="bottom" constant="8" id="Fvt-Ml-SZQ"/>
-                            <constraint firstItem="QGK-0f-SBw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="GLX-zg-sRL">
-                                <variation key="widthClass=regular" constant="136"/>
-                            </constraint>
                             <constraint firstItem="EZG-yn-6o7" firstAttribute="top" secondItem="Eqs-mf-WIW" secondAttribute="bottom" constant="16" id="H1J-tL-Opd"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QGK-0f-SBw" secondAttribute="trailing" constant="80" id="HVO-ow-wv6">
-                                <variation key="widthClass=regular" constant="136"/>
-                            </constraint>
-                            <constraint firstItem="i9n-pd-d9D" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="K8c-R9-fZD">
-                                <variation key="widthClass=regular" constant="136"/>
-                            </constraint>
-                            <constraint firstItem="i9n-pd-d9D" firstAttribute="top" secondItem="Eqs-mf-WIW" secondAttribute="bottom" constant="72" id="NxM-Vt-PUS"/>
                             <constraint firstItem="JJB-Yk-Kn8" firstAttribute="top" secondItem="0SU-Ug-rCo" secondAttribute="bottom" constant="8" id="Osd-ob-L7g"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0EM-UP-izQ" secondAttribute="trailing" symbolic="YES" id="TEa-f6-i40"/>
-                            <constraint firstItem="QGK-0f-SBw" firstAttribute="top" secondItem="i9n-pd-d9D" secondAttribute="bottom" constant="24" id="YDK-bj-rRk"/>
                             <constraint firstItem="9ck-VK-Dxh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Z3f-Px-J56"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9ck-VK-Dxh" secondAttribute="trailing" constant="8" id="b2M-gW-4Up"/>
                             <constraint firstItem="jWl-wT-ZCZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="bSY-Rz-pH8">
@@ -234,8 +192,6 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="EZG-yn-6o7" id="OAu-MZ-eYY"/>
-                        <outlet property="btnFaceBookLogin" destination="i9n-pd-d9D" id="Mep-6k-nFb"/>
-                        <outlet property="btnGoogleLogin" destination="QGK-0f-SBw" id="EuF-l9-8Yw"/>
                         <outlet property="btnLogin" destination="Eqs-mf-WIW" id="Fd7-ad-cnL"/>
                         <outlet property="inputEmail" destination="YtF-oj-V0X" id="g1k-D8-PTl"/>
                         <outlet property="inputPassword" destination="JJB-Yk-Kn8" id="CYa-vb-Wpw"/>
@@ -504,7 +460,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4lB-Oc-oGv"/>
+        <segue reference="dOf-sg-ka4"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house.fill" catalog="system" width="128" height="106"/>
