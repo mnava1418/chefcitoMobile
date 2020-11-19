@@ -45,6 +45,8 @@ class LoginViewController: UIViewController {
         
         //FaceBook login btn
         let btnFaceBook = FBLoginButton()
+        
+        btnFaceBook.permissions = ["public_profile", "email"]
         btnFaceBook.delegate = self
         
         view.addSubview(btnFaceBook)
@@ -52,6 +54,24 @@ class LoginViewController: UIViewController {
         btnFaceBook.topAnchor.constraint(equalTo: btnLogin.bottomAnchor, constant: 80).isActive = true
         btnFaceBook.leadingAnchor.constraint(equalTo: btnLogin.leadingAnchor).isActive = true
         btnFaceBook.trailingAnchor.constraint(equalTo: btnLogin.trailingAnchor).isActive = true
+    }
+    
+    private func validateLoginResponse(currentUser: UserModel, status: Int, json: Dictionary<String, Any>) {
+        self.activityIndicator.stopAnimating()
+        
+        switch status {
+        case 200:
+            currentUser.saveToken(token: json["token"] as! String)
+            self.performSegue(withIdentifier: "showMainAppLogin", sender: nil)
+        case 400:
+            if let error = json["error"] {
+                self.showError(message: error as! String)
+            } else {
+                self.showError(message: Constants.GENERIC_ERROR)
+            }
+        default:
+            self.showError(message: Constants.GENERIC_ERROR)
+        }
     }
     
     @IBAction func recoverPassword(_ sender: Any) {
@@ -67,21 +87,7 @@ class LoginViewController: UIViewController {
         
         if validationResult == .valid {
             currentUser.login { (status, json) in
-                self.activityIndicator.stopAnimating()
-                
-                switch status {
-                case 200:
-                    currentUser.saveToken(token: json["token"] as! String)
-                    self.performSegue(withIdentifier: "showMainAppLogin", sender: nil)
-                case 400:
-                    if let error = json["error"] {
-                        self.showError(message: error as! String)
-                    } else {
-                        self.showError(message: Constants.GENERIC_ERROR)
-                    }
-                default:
-                    self.showError(message: Constants.GENERIC_ERROR)
-                }
+                self.validateLoginResponse(currentUser: currentUser, status: status, json: json)
             }
         } else {
             activityIndicator.stopAnimating()
@@ -118,12 +124,22 @@ extension LoginViewController: LoginButtonDelegate {
             if currentResult.isCancelled {
                 showError(message: "Has cancelado el inicio de sesión.")
             } else {
-                self.performSegue(withIdentifier: "showMainAppLogin", sender: nil)
+                faceBookLogin()
             }
         }
     }
     
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
         print("Me voy!!")
+    }
+    
+    private func faceBookLogin () {
+        txtError.isHidden = true
+        activityIndicator.startAnimating()
+        let faceBookService = FaceBookService()
+        let currentUser = UserModel(email: "", password: "")
+        faceBookService.login { (status, json) in
+            self.validateLoginResponse(currentUser: currentUser, status: status, json: json)
+        }
     }
 }

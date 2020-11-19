@@ -10,6 +10,8 @@ import Foundation
 struct UserModel {
     private let email:String!
     private let password:String!
+    private var isFacebook:Bool! = false
+    private var isGoogle:Bool! = false
     
     public enum UserError: String {
         case valid = "Usuario válido."
@@ -22,6 +24,7 @@ struct UserModel {
         self.email = email.trimmingCharacters(in: .whitespaces)
         self.password = password.trimmingCharacters(in: .whitespaces)
     }
+    
     
     private func isValidEmail() -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -59,6 +62,10 @@ struct UserModel {
         return self.email
     }
     
+    public mutating func setIsFacebook(isFacebook: Bool) {
+        self.isFacebook = isFacebook
+    }
+    
     public func createUser(completion: @escaping (Int, Dictionary<String,Any>) -> Void) {
         let body:[String: String] = ["email": email, "password": password]
         NetWorkService.httpRequest(url: "/user/create", method: .post, parameters: body) {
@@ -73,6 +80,14 @@ struct UserModel {
             completion(status, json)
         }
     }
+    
+    public func socialMediaRegister(completion: @escaping (Int, Dictionary<String, Any>) -> Void) {
+        let body:[String: String] = ["email": email, "password": password, "isFaceBook": isFacebook.description, "isGoogle": isGoogle.description]
+        NetWorkService.httpRequest(url: "/user/socialMedia", method: .post, parameters: body) { (status, json) in
+            completion(status, json)
+        }
+    }
+    
     
     public func saveToken(token: String) {
         let key = Constants.TOKEN_KEY
