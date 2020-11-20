@@ -42,18 +42,6 @@ class LoginViewController: UIViewController {
     private func setViewElements () {
         txtError.isHidden = true
         btnLogin = ViewUIElements.setUIButton(button: btnLogin)
-        
-        //FaceBook login btn
-        let btnFaceBook = FBLoginButton()
-        
-        btnFaceBook.permissions = ["public_profile", "email"]
-        btnFaceBook.delegate = self
-        
-        view.addSubview(btnFaceBook)
-        btnFaceBook.translatesAutoresizingMaskIntoConstraints = false
-        btnFaceBook.topAnchor.constraint(equalTo: btnLogin.bottomAnchor, constant: 80).isActive = true
-        btnFaceBook.leadingAnchor.constraint(equalTo: btnLogin.leadingAnchor).isActive = true
-        btnFaceBook.trailingAnchor.constraint(equalTo: btnLogin.trailingAnchor).isActive = true
     }
     
     private func validateLoginResponse(currentUser: UserModel, status: Int, json: Dictionary<String, Any>) {
