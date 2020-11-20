@@ -83,6 +83,16 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBAction func facebookLogin(_ sender: Any) {
+        txtError.isHidden = true
+        activityIndicator.startAnimating()
+        let faceBookService = FaceBookService()
+        let currentUser = UserModel(email: "", password: "")
+        faceBookService.login(view: self) { (status, json) in
+            self.validateLoginResponse(currentUser: currentUser, status: status, json: json)
+        }
+    }
+    
     @IBAction func register(_ sender: Any) {
         self.performSegue(withIdentifier: "showRegisterView", sender: nil)
     }
@@ -100,34 +110,4 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-}
-
-// MARK: LoginButtonDelegate
-extension LoginViewController: LoginButtonDelegate {
-    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
-        
-        if error != nil {
-            showError(message: Constants.GENERIC_ERROR)
-        } else if let currentResult = result {
-            if currentResult.isCancelled {
-                showError(message: "Has cancelado el inicio de sesión.")
-            } else {
-                faceBookLogin()
-            }
-        }
-    }
-    
-    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-        print("Me voy!!")
-    }
-    
-    private func faceBookLogin () {
-        txtError.isHidden = true
-        activityIndicator.startAnimating()
-        let faceBookService = FaceBookService()
-        let currentUser = UserModel(email: "", password: "")
-        faceBookService.login { (status, json) in
-            self.validateLoginResponse(currentUser: currentUser, status: status, json: json)
-        }
-    }
 }

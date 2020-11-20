@@ -25,17 +25,27 @@ struct FaceBookService {
         }
     }
     
-    public func login (completion: @escaping (Int, Dictionary<String, Any>) -> Void) {
-        getUserProfile { (error, result) in
-            if error != nil {
+    public func login (view:LoginViewController, completion: @escaping (Int, Dictionary<String, Any>) -> Void) {
+        let loginManager = LoginManager()
+        loginManager.logIn(permissions: [.publicProfile, .email], viewController: view) { (result) in
+            switch result {
+            case .cancelled:
+                completion(400, ["error": "Has cancelado el inicio de sesión."])
+            case .failed(_):
                 completion(500, ["error": Constants.GENERIC_ERROR])
-            }
-            
-            if let userInfo = result as? Dictionary<String, Any> {
-                var user = UserModel(email: userInfo["email"] as! String, password: Constants.SM_TOKEN)
-                user.setIsFacebook(isFacebook: true)
-                user.socialMediaRegister { (status, json) in
-                    completion(status, json)
+            case .success(_,_,_):
+                getUserProfile { (error, result) in
+                    if error != nil {
+                        completion(500, ["error": Constants.GENERIC_ERROR])
+                    }
+                    
+                    if let userInfo = result as? Dictionary<String, Any> {
+                        var user = UserModel(email: userInfo["email"] as! String, password: Constants.SM_TOKEN)
+                        user.setIsFacebook(isFacebook: true)
+                        user.socialMediaRegister { (status, json) in
+                            completion(status, json)
+                        }
+                    }
                 }
             }
         }
