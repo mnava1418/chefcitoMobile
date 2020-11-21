@@ -40,8 +40,7 @@ struct FaceBookService {
                     }
                     
                     if let userInfo = result as? Dictionary<String, Any> {
-                        var user = UserModel(email: userInfo["email"] as! String, password: Tokens.SM_TOKEN)
-                        user.setIsFacebook(isFacebook: true)
+                        let user = UserModel(email: userInfo["email"] as! String, password: Tokens.SM_TOKEN, isFacebook: true, isGoogle: false)
                         user.socialMediaRegister { (status, json) in
                             completion(status, json)
                         }

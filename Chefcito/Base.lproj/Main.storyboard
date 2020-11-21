@@ -97,10 +97,10 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OlH-VM-BAC">
-                                <rect key="frame" x="80" y="623" width="268" height="32"/>
+                                <rect key="frame" x="80" y="623" width="268" height="40"/>
                                 <color key="backgroundColor" red="0.22480443119999999" green="0.38647860290000002" blue="0.63924431800000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="hRb-ty-aGg"/>
+                                    <constraint firstAttribute="height" constant="40" id="hRb-ty-aGg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                 <state key="normal" title="   Login with Facebook" image="facebookLogo"/>
@@ -109,10 +109,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eux-xe-uU0">
-                                <rect key="frame" x="80" y="671" width="268" height="32"/>
+                                <rect key="frame" x="80" y="679" width="268" height="40"/>
                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="STj-xr-HdE"/>
+                                    <constraint firstAttribute="height" constant="40" id="STj-xr-HdE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                 <state key="normal" title="   Login with Google" image="googleLogo">

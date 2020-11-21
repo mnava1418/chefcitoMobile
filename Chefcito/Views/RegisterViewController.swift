@@ -38,7 +38,7 @@ class RegisterViewController: UIViewController {
         txtError.isHidden = true
         activityIndicator.startAnimating()
         
-        let currentUser:UserModel = UserModel(email: inputEmail.text!, password: inputPassword.text!)
+        let currentUser:UserModel = UserModel(email: inputEmail.text!, password: inputPassword.text!, isFacebook: false, isGoogle: false)
         let validationResult:UserModel.UserError = currentUser.validateUser()
         
         if validationResult == .valid {
@@ -47,7 +47,7 @@ class RegisterViewController: UIViewController {
                 
                 switch status {
                 case 200:
-                    currentUser.saveToken(token: json["token"] as! String)
+                    UserModel.saveToken(token: json["token"] as! String)
                     self.performSegue(withIdentifier: "showMainAppRegister", sender: nil)
                 case 400:
                     if let error = json["error"] {

@@ -10,8 +10,8 @@ import Foundation
 struct UserModel {
     private let email:String!
     private let password:String!
-    private var isFacebook:Bool! = false
-    private var isGoogle:Bool! = false
+    private var isFacebook:Bool!
+    private var isGoogle:Bool!
     
     public enum UserError: String {
         case valid = "Usuario válido."
@@ -20,9 +20,11 @@ struct UserModel {
         case password = "Password no válido (8 caracteres, 1 mayúscula y 1 número)."
     }
     
-    init(email: String, password: String) {
+    init(email: String, password: String, isFacebook: Bool, isGoogle: Bool) {
         self.email = email.trimmingCharacters(in: .whitespaces)
         self.password = password.trimmingCharacters(in: .whitespaces)
+        self.isFacebook = isFacebook
+        self.isGoogle = isGoogle
     }
     
     
@@ -62,10 +64,6 @@ struct UserModel {
         return self.email
     }
     
-    public mutating func setIsFacebook(isFacebook: Bool) {
-        self.isFacebook = isFacebook
-    }
-    
     public func createUser(completion: @escaping (Int, Dictionary<String,Any>) -> Void) {
         let body:[String: String] = ["email": email, "password": password]
         NetWorkService.httpRequest(url: "/user/create", method: .post, parameters: body) {
@@ -89,7 +87,7 @@ struct UserModel {
     }
     
     
-    public func saveToken(token: String) {
+    public static func saveToken(token: String) {
         let key = Constants.TOKEN_KEY
         UserDefaults.standard.set(token, forKey: key)
     }

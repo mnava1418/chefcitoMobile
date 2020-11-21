@@ -50,12 +50,12 @@ class LoginViewController: UIViewController {
         btnLogin = ViewUIElements.setUIButton(button: btnLogin)
     }
     
-    private func validateLoginResponse(currentUser: UserModel, status: Int, json: Dictionary<String, Any>) {
+    private func validateLoginResponse(status: Int, json: Dictionary<String, Any>) {
         self.activityIndicator.stopAnimating()
         
         switch status {
         case 200:
-            currentUser.saveToken(token: json["token"] as! String)
+            UserModel.saveToken(token: json["token"] as! String)
             self.performSegue(withIdentifier: "showMainAppLogin", sender: nil)
         case 400:
             if let error = json["error"] {
@@ -76,12 +76,12 @@ class LoginViewController: UIViewController {
         txtError.isHidden = true
         activityIndicator.startAnimating()
         
-        let currentUser:UserModel = UserModel(email: inputEmail.text!, password: inputPassword.text!)
+        let currentUser:UserModel = UserModel(email: inputEmail.text!, password: inputPassword.text!, isFacebook: false, isGoogle: false)
         let validationResult:UserModel.UserError = currentUser.validateUser()
         
         if validationResult == .valid {
             currentUser.login { (status, json) in
-                self.validateLoginResponse(currentUser: currentUser, status: status, json: json)
+                self.validateLoginResponse(status: status, json: json)
             }
         } else {
             activityIndicator.stopAnimating()
@@ -93,9 +93,8 @@ class LoginViewController: UIViewController {
         txtError.isHidden = true
         activityIndicator.startAnimating()
         let faceBookService = FaceBookService()
-        let currentUser = UserModel(email: "", password: "")
         faceBookService.login(view: self) { (status, json) in
-            self.validateLoginResponse(currentUser: currentUser, status: status, json: json)
+            self.validateLoginResponse(status: status, json: json)
         }
     }
     
@@ -125,7 +124,9 @@ class LoginViewController: UIViewController {
 // MARK: - GIDSignInDelegate
 extension LoginViewController: GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        
-        print(user)
+        let googleService = GoogleService()
+        googleService.login(user: user, error: error) { (status, json) in
+            self.validateLoginResponse(status: status, json: json)
+        }
     }
 }
