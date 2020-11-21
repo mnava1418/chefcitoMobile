@@ -8,6 +8,7 @@
 import UIKit
 import AudioToolbox
 import FBSDKLoginKit
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
    
@@ -21,6 +22,11 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Initialize sign-in
+        GIDSignIn.sharedInstance().clientID = Tokens.GOOGLE_CLIENT_ID
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().presentingViewController = self
 
         // Do any additional setup after loading the view.
         setViewElements()
@@ -93,6 +99,10 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBAction func googleLogin(_ sender: Any) {
+        GIDSignIn.sharedInstance()?.signIn()
+    }
+    
     @IBAction func register(_ sender: Any) {
         self.performSegue(withIdentifier: "showRegisterView", sender: nil)
     }
@@ -110,4 +120,12 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+}
+
+// MARK: - GIDSignInDelegate
+extension LoginViewController: GIDSignInDelegate {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
+        print(user)
+    }
 }

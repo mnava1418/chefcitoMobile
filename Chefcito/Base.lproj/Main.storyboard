@@ -118,6 +118,9 @@
                                 <state key="normal" title="   Login with Google" image="googleLogo">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="googleLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BDS-bE-7Pp"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0SU-Ug-rCo">
                                 <rect key="frame" x="80" y="367" width="80" height="24"/>
