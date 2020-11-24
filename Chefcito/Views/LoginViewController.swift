@@ -48,6 +48,12 @@ class LoginViewController: UIViewController {
     private func setViewElements () {
         txtError.isHidden = true
         btnLogin = ViewUIElements.setUIButton(button: btnLogin)
+        
+        inputEmail.delegate = self
+        inputEmail.tag = 10
+        
+        inputPassword.delegate = self
+        inputPassword.tag = 11
     }
     
     private func validateLoginResponse(status: Int, json: Dictionary<String, Any>) {
@@ -68,11 +74,17 @@ class LoginViewController: UIViewController {
         }
     }
     
+    private func hideKeyBoard() {
+        inputEmail.resignFirstResponder()
+        inputPassword.resignFirstResponder()
+    }
+    
     @IBAction func recoverPassword(_ sender: Any) {
         print("Recover Password")
     }
     
     @IBAction func login(_ sender: Any) {
+        hideKeyBoard()
         txtError.isHidden = true
         activityIndicator.startAnimating()
         
@@ -90,6 +102,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func facebookLogin(_ sender: Any) {
+        hideKeyBoard()
         txtError.isHidden = true
         activityIndicator.startAnimating()
         let faceBookService = FaceBookService()
@@ -99,6 +112,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func googleLogin(_ sender: Any) {
+        hideKeyBoard()
         GIDSignIn.sharedInstance()?.signIn()
     }
     
@@ -128,5 +142,21 @@ extension LoginViewController: GIDSignInDelegate {
         googleService.login(user: user, error: error) { (status, json) in
             self.validateLoginResponse(status: status, json: json)
         }
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let currentTag = textField.tag
+        
+        if currentTag == 10 {
+            if let nextTextField = textField.superview?.viewWithTag(currentTag + 1 ) as? UITextField {
+                nextTextField.becomeFirstResponder()
+            }
+        } else {
+            textField.resignFirstResponder()
+        }
+        
+        return true
     }
 }

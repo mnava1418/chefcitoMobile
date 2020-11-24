@@ -26,6 +26,12 @@ class RegisterViewController: UIViewController {
     private func setViewElements () {
         txtError.isHidden = true
         btnCreateUser = ViewUIElements.setUIButton(button: btnCreateUser)
+        
+        inputEmail.tag = 10
+        inputEmail.delegate = self
+        
+        inputPassword.tag = 11
+        inputPassword.delegate = self
     }
     
     private func showError(message: String) {
@@ -34,7 +40,13 @@ class RegisterViewController: UIViewController {
         txtError.text = message
     }
     
+    private func hideKeyBoard() {
+        inputEmail.resignFirstResponder()
+        inputPassword.resignFirstResponder()
+    }
+    
     @IBAction func createUser(_ sender: Any) {
+        hideKeyBoard()
         txtError.isHidden = true
         activityIndicator.startAnimating()
         
@@ -80,3 +92,20 @@ class RegisterViewController: UIViewController {
     */
 
 }
+
+extension RegisterViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let currentTag = textField.tag
+        
+        if currentTag == 10 {
+            if let nextTextField = textField.superview?.viewWithTag(currentTag + 1 ) as? UITextField {
+                nextTextField.becomeFirstResponder()
+            }
+        } else {
+            textField.resignFirstResponder()
+        }
+        
+        return true
+    }
+}
+
