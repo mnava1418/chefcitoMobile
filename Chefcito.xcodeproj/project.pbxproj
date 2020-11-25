@@ -11,6 +11,7 @@
 		50413A9D256893880097E3B2 /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50413A9C256893880097E3B2 /* Tokens.swift */; };
 		50413AA525689D520097E3B2 /* GoogleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50413AA425689D520097E3B2 /* GoogleService.swift */; };
 		506337522562E1A0009E336E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506337512562E1A0009E336E /* Constants.swift */; };
+		5083FEE9256DEBCE00A44CC6 /* ChefcitoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083FEE8256DEBCE00A44CC6 /* ChefcitoViewController.swift */; };
 		50910794255EFD3D00FDC841 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50910793255EFD3D00FDC841 /* LoginViewController.swift */; };
 		509107B7255F0F6600FDC841 /* ViewUIElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509107B6255F0F6600FDC841 /* ViewUIElements.swift */; };
 		509107BC255F10AC00FDC841 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509107BB255F10AC00FDC841 /* RegisterViewController.swift */; };
@@ -55,6 +56,7 @@
 		50413A9C256893880097E3B2 /* Tokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokens.swift; sourceTree = "<group>"; };
 		50413AA425689D520097E3B2 /* GoogleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleService.swift; sourceTree = "<group>"; };
 		506337512562E1A0009E336E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5083FEE8256DEBCE00A44CC6 /* ChefcitoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefcitoViewController.swift; sourceTree = "<group>"; };
 		50910793255EFD3D00FDC841 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		509107B6255F0F6600FDC841 /* ViewUIElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUIElements.swift; sourceTree = "<group>"; };
 		509107BB255F10AC00FDC841 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				509107B5255F0F4B00FDC841 /* ViewUtils */,
 				50910793255EFD3D00FDC841 /* LoginViewController.swift */,
 				509107BB255F10AC00FDC841 /* RegisterViewController.swift */,
+				5083FEE8256DEBCE00A44CC6 /* ChefcitoViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				509107B7255F0F6600FDC841 /* ViewUIElements.swift in Sources */,
 				50D94659255DFEEF003CC3DA /* AppDelegate.swift in Sources */,
 				509107C2255F194A00FDC841 /* UserModel.swift in Sources */,
+				5083FEE9256DEBCE00A44CC6 /* ChefcitoViewController.swift in Sources */,
 				50D9465B255DFEEF003CC3DA /* SceneDelegate.swift in Sources */,
 				50B563A12560608F00B29D0B /* NetworkService.swift in Sources */,
 				506337522562E1A0009E336E /* Constants.swift in Sources */,
