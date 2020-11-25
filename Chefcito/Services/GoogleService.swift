@@ -14,8 +14,8 @@ struct GoogleService {
             let json = ["error": loginError.localizedDescription]
             completion(400, json)
         } else if let loginUser = user {
-            let currentUser = UserModel(email: loginUser.profile.email, password: Tokens.SM_TOKEN, isFacebook: false, isGoogle: true)
-            currentUser.socialMediaRegister { (status, json) in
+            var currentUser = UserModel(email: loginUser.profile.email, password: Tokens.SM_TOKEN, isFacebook: false, isGoogle: true)
+            currentUser.socialMediaRegister(token: loginUser.authentication.idToken){ (status, json) in
                 completion(status, json)
             }
         } else {

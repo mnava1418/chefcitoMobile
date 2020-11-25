@@ -82,10 +82,7 @@ struct UserModel {
     }
     
     public mutating func socialMediaRegister(token:String, completion: @escaping (Int, Dictionary<String, Any>) -> Void) {
-        
-        if isFacebook {
-            headers["FBToken"] = token
-        }
+        headers["SMToken"] = token
         
         let body:[String: String] = ["email": email, "password": password, "isFaceBook": isFacebook.description, "isGoogle": isGoogle.description]
         NetWorkService.httpRequest(url: "/user/socialMedia", method: .post, parameters: body, headers: headers) { (status, json) in
