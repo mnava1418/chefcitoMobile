@@ -10,8 +10,7 @@ import Alamofire
  
 struct NetWorkService {
     
-    public static func httpRequest(url: String, method: HTTPMethod, parameters: [String:String], completion: @escaping (Int, Dictionary<String, Any> ) -> Void ) {
-        let headers:HTTPHeaders = ["Content-Type": "application/x-www-form-urlencoded"]
+    public static func httpRequest(url: String, method: HTTPMethod, parameters: [String:String], headers:HTTPHeaders, completion: @escaping (Int, Dictionary<String, Any> ) -> Void ) {
         
         AF.request("\(Constants.HOST)\(url)", method: method, parameters: parameters, encoder: URLEncodedFormParameterEncoder.default, headers: headers).responseJSON { (response) in
             

@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import Alamofire
 
 struct UserModel {
     private let email:String!
     private let password:String!
     private var isFacebook:Bool!
     private var isGoogle:Bool!
+    private var headers:HTTPHeaders = ["Content-Type": "application/x-www-form-urlencoded"]
     
     public enum UserError: String {
         case valid = "Usuario válido."
@@ -66,7 +68,7 @@ struct UserModel {
     
     public func createUser(completion: @escaping (Int, Dictionary<String,Any>) -> Void) {
         let body:[String: String] = ["email": email, "password": password]
-        NetWorkService.httpRequest(url: "/user/create", method: .post, parameters: body) {
+        NetWorkService.httpRequest(url: "/user/create", method: .post, parameters: body, headers: headers) {
             (status, json) in
             completion(status, json)
         }
@@ -74,14 +76,19 @@ struct UserModel {
     
     public func login(completion: @escaping (Int, Dictionary<String,Any>) -> Void) {
         let body:[String: String] = ["email": email, "password": password]
-        NetWorkService.httpRequest(url: "/user/login", method: .post, parameters: body) { (status, json) in
+        NetWorkService.httpRequest(url: "/user/login", method: .post, parameters: body, headers: headers) { (status, json) in
             completion(status, json)
         }
     }
     
-    public func socialMediaRegister(completion: @escaping (Int, Dictionary<String, Any>) -> Void) {
+    public mutating func socialMediaRegister(token:String, completion: @escaping (Int, Dictionary<String, Any>) -> Void) {
+        
+        if isFacebook {
+            headers["FBToken"] = token
+        }
+        
         let body:[String: String] = ["email": email, "password": password, "isFaceBook": isFacebook.description, "isGoogle": isGoogle.description]
-        NetWorkService.httpRequest(url: "/user/socialMedia", method: .post, parameters: body) { (status, json) in
+        NetWorkService.httpRequest(url: "/user/socialMedia", method: .post, parameters: body, headers: headers) { (status, json) in
             completion(status, json)
         }
     }

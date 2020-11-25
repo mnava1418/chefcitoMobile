@@ -14,14 +14,14 @@ struct FaceBookService {
         case invalidToken
     }
     
-    private func getUserProfile (completion: @escaping (Error?, Any?) -> Void) {
+    private func getUserProfile (completion: @escaping (Error?, Any?, String?) -> Void) {
         if let accessToken = FBSDKLoginKit.AccessToken.current {
             let graphRequest = FBSDKLoginKit.GraphRequest(graphPath: "me", parameters: ["fields": "email"], tokenString: accessToken.tokenString, version: nil, httpMethod: .get)
             graphRequest.start { (connection, result, error) in
-                completion(error, result)
+                completion(error, result, accessToken.tokenString)
             }
         } else {
-            completion(FaceBookServiceError.invalidToken, nil)
+            completion(FaceBookServiceError.invalidToken, nil, nil)
         }
     }
     
@@ -34,14 +34,14 @@ struct FaceBookService {
             case .failed(_):
                 completion(500, ["error": Constants.GENERIC_ERROR])
             case .success(_,_,_):
-                getUserProfile { (error, result) in
+                getUserProfile { (error, result, token) in
                     if error != nil {
                         completion(500, ["error": Constants.GENERIC_ERROR])
                     }
                     
                     if let userInfo = result as? Dictionary<String, Any> {
-                        let user = UserModel(email: userInfo["email"] as! String, password: Tokens.SM_TOKEN, isFacebook: true, isGoogle: false)
-                        user.socialMediaRegister { (status, json) in
+                        var user = UserModel(email: userInfo["email"] as! String, password: Tokens.SM_TOKEN, isFacebook: true, isGoogle: false)
+                        user.socialMediaRegister(token: token!) { (status, json) in
                             completion(status, json)
                         }
                     }
