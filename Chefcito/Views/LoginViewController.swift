@@ -119,10 +119,6 @@ class LoginViewController: UIViewController {
     @IBAction func register(_ sender: Any) {
         self.performSegue(withIdentifier: "showRegisterView", sender: nil)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
    
     /*
     // MARK: - Navigation

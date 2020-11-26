@@ -76,11 +76,7 @@ class RegisterViewController: UIViewController {
             showError(message: validationResult.rawValue)
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
+        
     /*
     // MARK: - Navigation
 

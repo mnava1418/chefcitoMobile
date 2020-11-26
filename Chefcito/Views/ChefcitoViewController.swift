@@ -40,12 +40,7 @@ class ChefcitoViewController: UIViewController {
         itemsTitle = .menus
         self.performSegue(withIdentifier: "showItems", sender: nil)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
-    
+       
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

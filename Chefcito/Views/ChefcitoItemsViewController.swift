@@ -24,11 +24,7 @@ class ChefcitoItemsViewController: UIViewController {
         let addButton = UIBarButtonItem(image: plusCircleImg, style: .plain, target: self, action: #selector(addItem))
         self.navigationItem.rightBarButtonItem = addButton
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
+  
     @objc private func addItem() {
         if navTitle == ItemsTile.recetas {
             performSegue(withIdentifier: "addReceipt", sender: nil)
