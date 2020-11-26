@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -303,6 +304,7 @@
                         <rect key="frame" x="0.0" y="44" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -478,6 +480,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chefcitoBackground" translatesAutoresizingMaskIntoConstraints="NO" id="rzV-Fh-b9Q">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="755"/>
+                            </imageView>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UhO-Ag-TqY">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="755"/>
+                                <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sM2-3R-W32">
                                 <rect key="frame" x="0.0" y="376.66666666666669" width="428" height="2"/>
                                 <constraints>
@@ -491,6 +500,9 @@
                                     <constraint firstAttribute="height" constant="180" id="D7o-PS-RJC"/>
                                 </constraints>
                                 <state key="normal" image="receta"/>
+                                <connections>
+                                    <action selector="showReceips:" destination="y12-kg-HHG" eventType="touchUpInside" id="rw2-CI-TIN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4b-ts-Zwn">
                                 <rect key="frame" x="80" y="466.66666666666663" width="268" height="180"/>
@@ -499,14 +511,17 @@
                                     <constraint firstAttribute="height" constant="180" id="RrC-in-UAV"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="menu"/>
+                                <connections>
+                                    <action selector="showMenus:" destination="y12-kg-HHG" eventType="touchUpInside" id="QyR-xd-Rx1"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0AD-E9-Dlm">
                                 <rect key="frame" x="80" y="410.66666666666669" width="268" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="PXX-sZ-IES"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SnellRoundhand-Bold" family="Snell Roundhand" pointSize="32"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                <color key="textColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recetas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pc4-FC-h8S">
@@ -514,8 +529,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="XCR-VI-q0V"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SnellRoundhand-Bold" family="Snell Roundhand" pointSize="32"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                <color key="textColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -523,7 +538,9 @@
                         <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="sM2-3R-W32" firstAttribute="top" secondItem="UGI-xk-wqA" secondAttribute="bottom" constant="32" id="28q-30-NMd"/>
+                            <constraint firstItem="UhO-Ag-TqY" firstAttribute="leading" secondItem="z98-oB-cTS" secondAttribute="leading" id="BIh-hW-Bu8"/>
                             <constraint firstItem="sM2-3R-W32" firstAttribute="centerX" secondItem="z98-oB-cTS" secondAttribute="centerX" id="ChL-MQ-n1E"/>
+                            <constraint firstItem="rzV-Fh-b9Q" firstAttribute="leading" secondItem="z98-oB-cTS" secondAttribute="leading" id="Dtw-am-s60"/>
                             <constraint firstItem="z98-oB-cTS" firstAttribute="trailing" secondItem="Pc4-FC-h8S" secondAttribute="trailing" constant="80" id="Fuq-gg-dId">
                                 <variation key="widthClass=regular" constant="184"/>
                             </constraint>
@@ -542,11 +559,17 @@
                             <constraint firstItem="z98-oB-cTS" firstAttribute="trailing" secondItem="UGI-xk-wqA" secondAttribute="trailing" constant="80" id="WNd-Z9-euN">
                                 <variation key="widthClass=regular" constant="184"/>
                             </constraint>
+                            <constraint firstItem="rzV-Fh-b9Q" firstAttribute="top" secondItem="z98-oB-cTS" secondAttribute="top" id="bOU-xd-dy2"/>
+                            <constraint firstItem="UhO-Ag-TqY" firstAttribute="top" secondItem="z98-oB-cTS" secondAttribute="top" id="dpZ-Zx-ayH"/>
+                            <constraint firstItem="z98-oB-cTS" firstAttribute="trailing" secondItem="UhO-Ag-TqY" secondAttribute="trailing" id="e0o-cR-LTw"/>
+                            <constraint firstItem="z98-oB-cTS" firstAttribute="bottom" secondItem="rzV-Fh-b9Q" secondAttribute="bottom" id="eFd-ev-B05"/>
+                            <constraint firstItem="z98-oB-cTS" firstAttribute="trailing" secondItem="rzV-Fh-b9Q" secondAttribute="trailing" id="ect-Wh-RXz"/>
                             <constraint firstItem="h4b-ts-Zwn" firstAttribute="top" secondItem="0AD-E9-Dlm" secondAttribute="bottom" constant="16" id="hKd-fc-SEo"/>
                             <constraint firstItem="z98-oB-cTS" firstAttribute="trailing" secondItem="0AD-E9-Dlm" secondAttribute="trailing" constant="80" id="hhU-Xo-rls">
                                 <variation key="widthClass=regular" constant="184"/>
                             </constraint>
                             <constraint firstItem="0AD-E9-Dlm" firstAttribute="top" secondItem="sM2-3R-W32" secondAttribute="bottom" constant="32" id="jqN-yJ-J0z"/>
+                            <constraint firstItem="UhO-Ag-TqY" firstAttribute="bottom" secondItem="z98-oB-cTS" secondAttribute="bottom" id="o6X-vc-GuX"/>
                             <constraint firstItem="sM2-3R-W32" firstAttribute="leading" secondItem="z98-oB-cTS" secondAttribute="leading" id="u9Z-cS-mbS"/>
                             <constraint firstItem="h4b-ts-Zwn" firstAttribute="leading" secondItem="z98-oB-cTS" secondAttribute="leading" constant="80" id="v58-HV-Lsy">
                                 <variation key="widthClass=regular" constant="184"/>
@@ -560,18 +583,78 @@
                     <connections>
                         <outlet property="btnMenus" destination="h4b-ts-Zwn" id="WVE-um-EPM"/>
                         <outlet property="btnReceips" destination="UGI-xk-wqA" id="bx1-J9-P9B"/>
+                        <segue destination="aVw-SF-RzG" kind="show" identifier="showItems" id="fNk-i6-Otj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m9b-5g-3Ar" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3121.9626168224299" y="-384.23326133909291"/>
         </scene>
+        <!--Chefcito Items View Controller-->
+        <scene sceneID="1hL-He-o9l">
+            <objects>
+                <viewController id="aVw-SF-RzG" customClass="ChefcitoItemsViewController" customModule="Chefcito" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BUQ-RY-6HK">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="838"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="generalBG" translatesAutoresizingMaskIntoConstraints="NO" id="EFK-te-Bfy">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="755"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="U4Z-Ti-lru"/>
+                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="U4Z-Ti-lru" firstAttribute="bottom" secondItem="EFK-te-Bfy" secondAttribute="bottom" id="Mce-eX-23m"/>
+                            <constraint firstItem="EFK-te-Bfy" firstAttribute="leading" secondItem="U4Z-Ti-lru" secondAttribute="leading" id="epb-l2-I7v"/>
+                            <constraint firstItem="U4Z-Ti-lru" firstAttribute="trailing" secondItem="EFK-te-Bfy" secondAttribute="trailing" id="jZF-bm-VIq"/>
+                            <constraint firstItem="EFK-te-Bfy" firstAttribute="top" secondItem="U4Z-Ti-lru" secondAttribute="top" id="jpH-Xw-L5u"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="pg3-Cy-aIv"/>
+                    <connections>
+                        <segue destination="mRF-Np-qcR" kind="show" identifier="addReceipt" id="jeg-z8-sFP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6SH-Jp-bHo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4049" y="-384"/>
+        </scene>
+        <!--Nueva Receta-->
+        <scene sceneID="Cej-RO-Ul3">
+            <objects>
+                <viewController id="mRF-Np-qcR" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1GL-gh-NZp">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="838"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="generalBG" translatesAutoresizingMaskIntoConstraints="NO" id="cfa-iI-k5C">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="755"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aky-hQ-OCC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cfa-iI-k5C" firstAttribute="top" secondItem="aky-hQ-OCC" secondAttribute="top" id="Sfq-cD-SOK"/>
+                            <constraint firstItem="aky-hQ-OCC" firstAttribute="trailing" secondItem="cfa-iI-k5C" secondAttribute="trailing" id="WxW-3g-SN6"/>
+                            <constraint firstItem="aky-hQ-OCC" firstAttribute="bottom" secondItem="cfa-iI-k5C" secondAttribute="bottom" id="pcW-Um-aYN"/>
+                            <constraint firstItem="cfa-iI-k5C" firstAttribute="leading" secondItem="aky-hQ-OCC" secondAttribute="leading" id="r2c-8q-jc0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Nueva Receta" id="Tjj-64-Gvo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CvQ-wZ-iZ4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4994.8598130841119" y="-1055.5075593952486"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="dOf-sg-ka4"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="chefcitoBackground" width="1920" height="1280"/>
         <image name="facebookLogo" width="20" height="20"/>
+        <image name="generalBG" width="600" height="401"/>
         <image name="googleLogo" width="18" height="18"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="loginBackground" width="1920" height="2880"/>
@@ -579,5 +662,8 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="receta" width="1920" height="1281"/>
         <image name="registerBackground" width="4000" height="6000"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
