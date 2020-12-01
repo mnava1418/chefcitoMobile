@@ -29,6 +29,10 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
     @IBOutlet weak var pickerCategory: UIPickerView!
     @IBOutlet weak var btnNextOne: UIButton!
     
+    @IBOutlet weak var inputNum: UITextField!
+    @IBOutlet weak var txtInstructions: UITextView!
+    @IBOutlet weak var btnSave: UIButton!
+    
     private var primaryColor: UIColor!
     private var secondaryColor: UIColor!
     private var imagePicker: UIImagePickerController = UIImagePickerController()
@@ -60,6 +64,10 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
         
         btnNextOne = ViewUIElements.setUIButton(button: btnNextOne)
         btnNextOne.tag = 2
+        
+        btnSave = ViewUIElements.setUIButton(button: btnSave)
+        
+        txtInstructions.layer.cornerRadius = 10
     }
     
     private func scrollToPage (page: Int) {
@@ -116,6 +124,10 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
     
     @IBAction func selectImage(_ sender: Any) {
         showImagePickerType()
+    }
+    
+    @IBAction func saveRecipe(_ sender: Any) {
+        print("Vamo a guardar")
     }
     
     /*
@@ -177,8 +189,11 @@ extension NewRecipeViewController: UIPickerViewDataSource, UIPickerViewDelegate 
         return categories.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categories[row]
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let text = categories[row]
+        let attributedText = NSAttributedString(string: text, attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+        
+        return attributedText
     }
 }
 
