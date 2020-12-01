@@ -13,6 +13,8 @@ import GoogleSignIn
 class LoginViewController: UIViewController {
    
     @IBOutlet weak var btnLogin: UIButton!
+    @IBOutlet weak var btnFacebook: UIButton!
+    @IBOutlet weak var btnGoogle: UIButton!
     
     @IBOutlet weak var inputEmail: UITextField!
     @IBOutlet weak var inputPassword: UITextField!
@@ -48,6 +50,8 @@ class LoginViewController: UIViewController {
     private func setViewElements () {
         txtError.isHidden = true
         btnLogin = ViewUIElements.setUIButton(button: btnLogin)
+        btnGoogle = ViewUIElements.setUIButton(button: btnGoogle)
+        btnFacebook = ViewUIElements.setUIButton(button: btnFacebook)
         
         inputEmail.delegate = self
         inputEmail.tag = 10

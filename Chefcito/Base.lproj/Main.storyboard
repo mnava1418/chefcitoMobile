@@ -233,6 +233,8 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="EZG-yn-6o7" id="OAu-MZ-eYY"/>
+                        <outlet property="btnFacebook" destination="OlH-VM-BAC" id="ivJ-JS-Nx8"/>
+                        <outlet property="btnGoogle" destination="eux-xe-uU0" id="dEf-Pi-scA"/>
                         <outlet property="btnLogin" destination="Eqs-mf-WIW" id="Fd7-ad-cnL"/>
                         <outlet property="inputEmail" destination="YtF-oj-V0X" id="g1k-D8-PTl"/>
                         <outlet property="inputPassword" destination="JJB-Yk-Kn8" id="CYa-vb-Wpw"/>
