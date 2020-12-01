@@ -7,16 +7,25 @@
 
 import UIKit
 
-class NewRecipeViewController: UIViewController {
+enum ImagePickerType: String {
+    case new = "Imagen nueva"
+    case existent = "Imagen existente"
+}
+
+class NewRecipeViewController: UIViewController, UINavigationControllerDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var btnOne: UIButton!
     @IBOutlet weak var btnTwo: UIButton!
     @IBOutlet weak var btnThree: UIButton!
+    @IBOutlet weak var imgRecipe: UIImageView!
+    @IBOutlet weak var btnImage: UIButton!
+    @IBOutlet weak var alphaView: UIView!
     
     private var primaryColor: UIColor!
     private var secondaryColor: UIColor!
+    private var imagePicker: UIImagePickerController = UIImagePickerController()
     
     private let categories = ["Entrada", "Sopa", "Plato fuerte", "Postre"]
     private var ingredients:[String] = []
@@ -26,6 +35,8 @@ class NewRecipeViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         scrollView.delegate = self
+        imagePicker.delegate = self
+        
         btnOne.tag = 1
         btnTwo.tag = 2
         btnThree.tag = 3
@@ -48,33 +59,47 @@ class NewRecipeViewController: UIViewController {
         btnThree.setStatusColor(currentPage: currentPage, primaryColor: primaryColor, secondaryColor: secondaryColor)
     }
     
+    private func showImagePickerType () {
+        let viewAlert = UIAlertController(title: "Selecciona una imagen", message: "", preferredStyle: .actionSheet)
+        let newImageAction = UIAlertAction(title: ImagePickerType.new.rawValue, style: .default) { (action) in
+            self.setRecipeImage(imagePickerType: .new)
+        }
+        let existentImageAction = UIAlertAction(title: ImagePickerType.existent.rawValue, style: .default) { (action) in
+            self.setRecipeImage(imagePickerType: .existent)
+        }
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .destructive)
+        
+        viewAlert.addAction(newImageAction)
+        viewAlert.addAction(existentImageAction)
+        viewAlert.addAction(cancelAction)
+        
+        self.present(viewAlert, animated: true)
+    }
+    
+    private func setRecipeImage (imagePickerType: ImagePickerType) {
+        var sourceType: UIImagePickerController.SourceType!
+        
+        if imagePickerType == .new {
+            sourceType = .camera
+        } else {
+            sourceType = .photoLibrary
+        }
+        
+        if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+            self.imagePicker.sourceType = sourceType
+            self.present(imagePicker, animated: true)
+        }
+    }
+    
     @IBAction func scrollToPageBtn(_ sender: Any) {
         let btn = sender as! UIButton
         scrollToPage(page: btn.tag - 1)
         setIndicators(currentPage: btn.tag)
     }
     
-    
-    /*private func showNewIngredientForm() {
-        let addIngredientScreen = UIAlertController(title: "Ingrediente", message: "", preferredStyle: .alert)
-        addIngredientScreen.addTextField { textField in
-            textField.placeholder = "Ingrediente"
-            textField.autocapitalizationType = .sentences
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel)
-        let okAction = UIAlertAction(title: "Ok", style: .default) { action in
-            if let ingredient = addIngredientScreen.textFields?[0].text {
-                self.ingredients.append(ingredient)
-                self.ingredientTable.reloadData()
-            }
-        }
-        
-        addIngredientScreen.addAction(cancelAction)
-        addIngredientScreen.addAction(okAction)
-        
-        self.present(addIngredientScreen, animated: true)
-    }*/
+    @IBAction func selectImage(_ sender: Any) {
+        showImagePickerType()
+    }
     
     /*
     // MARK: - Navigation
@@ -104,9 +129,24 @@ extension UIScrollView {
     }
 }
 
+// MARK: - UIScrollViewDelegate
 extension NewRecipeViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         setIndicators(currentPage: scrollView.currentPage)
+    }
+}
+
+// Mark: - UIImagePickerControllerDelegate
+extension NewRecipeViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        imagePicker.dismiss(animated: true)
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            return
+        }
+        
+        imgRecipe.image = selectedImage
+        alphaView.alpha = 0
+        btnImage.setTitle("", for: .normal)
     }
 }
 

@@ -642,7 +642,44 @@
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uAS-Sf-4ty">
                                                         <rect key="frame" x="0.0" y="0.0" width="428" height="611"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newRecipeBackground" translatesAutoresizingMaskIntoConstraints="NO" id="JEo-KU-shi">
+                                                                <rect key="frame" x="0.0" y="0.0" width="428" height="250"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="250" id="lQl-61-vCT">
+                                                                        <variation key="widthClass=regular" constant="300"/>
+                                                                    </constraint>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O7x-Bd-vAd">
+                                                                <rect key="frame" x="0.0" y="0.0" width="428" height="250"/>
+                                                                <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </view>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXR-FJ-95r">
+                                                                <rect key="frame" x="0.0" y="0.0" width="428" height="250"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                                                <state key="normal" title="Selecciona una imagen">
+                                                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="selectImage:" destination="mRF-Np-qcR" eventType="touchUpInside" id="d0F-Xn-1Iz"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
                                                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="UXR-FJ-95r" secondAttribute="trailing" id="5CW-yI-Hvg"/>
+                                                            <constraint firstItem="O7x-Bd-vAd" firstAttribute="top" secondItem="uAS-Sf-4ty" secondAttribute="top" id="ApH-fa-e1n"/>
+                                                            <constraint firstItem="JEo-KU-shi" firstAttribute="top" secondItem="uAS-Sf-4ty" secondAttribute="top" id="Fxg-VW-nMN"/>
+                                                            <constraint firstItem="O7x-Bd-vAd" firstAttribute="leading" secondItem="uAS-Sf-4ty" secondAttribute="leading" id="NNt-34-cj8"/>
+                                                            <constraint firstAttribute="trailing" secondItem="JEo-KU-shi" secondAttribute="trailing" id="ax3-Ue-DxB"/>
+                                                            <constraint firstItem="JEo-KU-shi" firstAttribute="leading" secondItem="uAS-Sf-4ty" secondAttribute="leading" id="cFj-BF-qfV"/>
+                                                            <constraint firstItem="UXR-FJ-95r" firstAttribute="top" secondItem="uAS-Sf-4ty" secondAttribute="top" id="hJ0-oY-wxR"/>
+                                                            <constraint firstItem="O7x-Bd-vAd" firstAttribute="height" secondItem="JEo-KU-shi" secondAttribute="height" id="hmB-iW-jfI"/>
+                                                            <constraint firstAttribute="trailing" secondItem="O7x-Bd-vAd" secondAttribute="trailing" id="k5w-0x-f6E"/>
+                                                            <constraint firstItem="UXR-FJ-95r" firstAttribute="leading" secondItem="uAS-Sf-4ty" secondAttribute="leading" id="xY0-l5-dFH"/>
+                                                            <constraint firstItem="UXR-FJ-95r" firstAttribute="height" secondItem="JEo-KU-shi" secondAttribute="height" id="xb1-4g-05f"/>
+                                                        </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dgd-lN-q3D">
                                                         <rect key="frame" x="428" y="0.0" width="428" height="611"/>
@@ -773,9 +810,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Nueva Receta" id="Tjj-64-Gvo"/>
                     <connections>
+                        <outlet property="alphaView" destination="O7x-Bd-vAd" id="wRG-W2-EoI"/>
+                        <outlet property="btnImage" destination="UXR-FJ-95r" id="1yW-cw-3IT"/>
                         <outlet property="btnOne" destination="ozH-7n-Sug" id="fjk-tp-cuf"/>
                         <outlet property="btnThree" destination="Oc8-eW-77T" id="qgi-xm-KNb"/>
                         <outlet property="btnTwo" destination="7LN-cO-wku" id="zei-BH-ElG"/>
+                        <outlet property="imgRecipe" destination="JEo-KU-shi" id="qC5-Lu-Mmq"/>
                         <outlet property="pageControl" destination="Awz-74-MZU" id="djn-GP-U8Q"/>
                         <outlet property="scrollView" destination="syb-VP-Fof" id="neu-uA-shO"/>
                     </connections>
@@ -798,6 +838,7 @@
         <image name="googleLogo" width="18" height="18"/>
         <image name="loginBackground" width="1920" height="2880"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="newRecipeBackground" width="1920" height="1563"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="registerBackground" width="4000" height="6000"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
