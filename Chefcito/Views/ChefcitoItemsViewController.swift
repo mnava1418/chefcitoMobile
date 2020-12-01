@@ -9,8 +9,6 @@ import UIKit
 
 class ChefcitoItemsViewController: UIViewController {
 
-    public var navTitle:ItemsTile!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,16 +17,13 @@ class ChefcitoItemsViewController: UIViewController {
     }
     
     private func setNavBar() {
-        //self.title = navTitle.rawValue
         let plusCircleImg = UIImage(systemName: "plus")
         let addButton = UIBarButtonItem(image: plusCircleImg, style: .plain, target: self, action: #selector(addItem))
         self.navigationItem.rightBarButtonItem = addButton
     }
   
     @objc private func addItem() {
-        if navTitle == ItemsTile.recetas {
-            performSegue(withIdentifier: "addReceipt", sender: nil)
-        }
+        performSegue(withIdentifier: "createRecipe", sender: nil)
     }
        
     /*

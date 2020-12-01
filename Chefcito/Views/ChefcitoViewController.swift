@@ -41,13 +41,15 @@ class ChefcitoViewController: UIViewController {
         self.performSegue(withIdentifier: "showItems", sender: nil)
     }
        
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! ChefcitoItemsViewController
-        destination.navTitle = itemsTitle
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
+    */
 }
 
 extension UIButton {
