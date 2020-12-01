@@ -16,12 +16,18 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
+    
     @IBOutlet weak var btnOne: UIButton!
     @IBOutlet weak var btnTwo: UIButton!
     @IBOutlet weak var btnThree: UIButton!
+    
     @IBOutlet weak var imgRecipe: UIImageView!
     @IBOutlet weak var btnImage: UIButton!
     @IBOutlet weak var alphaView: UIView!
+    
+    @IBOutlet weak var inputName: UITextField!
+    @IBOutlet weak var pickerCategory: UIPickerView!
+    @IBOutlet weak var btnNextOne: UIButton!
     
     private var primaryColor: UIColor!
     private var secondaryColor: UIColor!
@@ -34,15 +40,26 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        primaryColor = btnOne.tintColor
+        secondaryColor = btnTwo.tintColor
+        
+        prepareViewElements()
+    }
+    
+    private func prepareViewElements() {
+        //Prepare data sources and delegates
         scrollView.delegate = self
         imagePicker.delegate = self
+        pickerCategory.dataSource = self
+        pickerCategory.delegate = self
         
+        //Prepare buttons
         btnOne.tag = 1
         btnTwo.tag = 2
         btnThree.tag = 3
         
-        primaryColor = btnOne.tintColor
-        secondaryColor = btnTwo.tintColor
+        btnNextOne = ViewUIElements.setUIButton(button: btnNextOne)
+        btnNextOne.tag = 2
     }
     
     private func scrollToPage (page: Int) {
@@ -151,8 +168,7 @@ extension NewRecipeViewController: UIImagePickerControllerDelegate {
 }
 
 // MARK: - Picker View
-/*extension NewRecipeViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    
+extension NewRecipeViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -164,7 +180,7 @@ extension NewRecipeViewController: UIImagePickerControllerDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return categories[row]
     }
-}*/
+}
 
 // MARK: - Table View
 /*extension NewRecipeViewController: UITableViewDataSource, UITableViewDelegate {
