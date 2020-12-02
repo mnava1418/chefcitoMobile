@@ -29,6 +29,10 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
     @IBOutlet weak var pickerCategory: UIPickerView!
     @IBOutlet weak var btnNextOne: UIButton!
     
+    @IBOutlet weak var tableIngredients: UITableView!
+    @IBOutlet weak var btnNextTwo: UIButton!
+    
+    
     @IBOutlet weak var inputNum: UITextField!
     @IBOutlet weak var txtInstructions: UITextView!
     @IBOutlet weak var btnSave: UIButton!
@@ -65,9 +69,13 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
         btnNextOne = ViewUIElements.setUIButton(button: btnNextOne)
         btnNextOne.tag = 2
         
+        btnNextTwo = ViewUIElements.setUIButton(button: btnNextTwo)
+        btnNextTwo.tag = 3
+        
         btnSave = ViewUIElements.setUIButton(button: btnSave)
         
         txtInstructions.layer.cornerRadius = 10
+        tableIngredients.layer.cornerRadius = 10
     }
     
     private func scrollToPage (page: Int) {
@@ -124,6 +132,9 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
     
     @IBAction func selectImage(_ sender: Any) {
         showImagePickerType()
+    }
+    
+    @IBAction func addIngredient(_ sender: Any) {
     }
     
     @IBAction func saveRecipe(_ sender: Any) {
