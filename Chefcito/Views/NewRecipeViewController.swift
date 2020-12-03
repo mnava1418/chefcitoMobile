@@ -36,6 +36,7 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
     @IBOutlet weak var inputNum: UITextField!
     @IBOutlet weak var txtInstructions: UITextView!
     @IBOutlet weak var btnSave: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private var primaryColor: UIColor!
     private var secondaryColor: UIColor!
@@ -51,7 +52,14 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
         primaryColor = btnOne.tintColor
         secondaryColor = btnTwo.tintColor
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        self.view.addGestureRecognizer(tapGesture)
+        
         prepareViewElements()
+    }
+    
+    @objc func handleTap () {
+        hideKeyBoard()
     }
     
     private func prepareViewElements() {
@@ -61,6 +69,8 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
         pickerCategory.delegate = self
         tableIngredients.dataSource = self
         tableIngredients.delegate = self
+        inputName.delegate = self
+        inputNum.delegate = self
         
         //Prepare buttons
         btnOne.tag = 1
@@ -156,7 +166,14 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
         self.tableIngredients.deleteRows(at: [indexPath], with: .fade)
     }
     
+    private func hideKeyBoard() {
+        inputName.resignFirstResponder()
+        inputNum.resignFirstResponder()
+        txtInstructions.resignFirstResponder()
+    }
+    
     @IBAction func scrollToPageBtn(_ sender: Any) {
+        hideKeyBoard()
         let btn = sender as! UIButton
         scrollToPage(page: btn.tag - 1)
         setIndicators(currentPage: btn.tag)
@@ -171,7 +188,28 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
     }
     
     @IBAction func saveRecipe(_ sender: Any) {
-        print("Vamo a guardar")
+        hideKeyBoard()
+        btnSave.setTitle("", for: .normal)
+        activityIndicator.startAnimating()
+        
+        let count = Utils.parseInt(value: inputNum.text!)
+        let categorySelected = pickerCategory.selectedRow(inComponent: 0)
+        
+        let currentRecipe:RecipeModel = RecipeModel(name: inputName.text!, category: categories[categorySelected], ingredients: ingredients, instructions: txtInstructions.text!, count: count, image: imgRecipe.image)
+        let validationResult:RecipeModel.RecipeError = currentRecipe.validateRecipe()
+        
+        if validationResult == .valid {
+            currentRecipe.createRecipe { (status, json) in
+                self.activityIndicator.stopAnimating()
+                self.btnSave.setTitle("Guardar", for: .normal)
+                print(status)
+                print(json)
+            }
+        } else {
+            self.activityIndicator.stopAnimating()
+            self.btnSave.setTitle("Guardar", for: .normal)
+            print("Ya mamo")
+        }
     }
     
     /*
@@ -183,7 +221,6 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
         // Pass the selected object to the new view controller.
     }
     */
-
 }
 
 extension UIButton {
@@ -263,5 +300,13 @@ extension NewRecipeViewController: UITableViewDataSource, UITableViewDelegate {
         let actions = UISwipeActionsConfiguration(actions: [deleteAction])
         actions.performsFirstActionWithFullSwipe = true
         return actions
+    }
+}
+
+// MARK: - Table View
+extension NewRecipeViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        hideKeyBoard()
+        return true
     }
 }

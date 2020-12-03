@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		50097B6E2565605B00F588E3 /* FaceBookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50097B6D2565605B00F588E3 /* FaceBookService.swift */; };
+		5023A9022579523200E1940E /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5023A9012579523200E1940E /* RecipeModel.swift */; };
+		5023A90725795DF600E1940E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5023A90625795DF600E1940E /* Utils.swift */; };
 		50413A9D256893880097E3B2 /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50413A9C256893880097E3B2 /* Tokens.swift */; };
 		50413AA525689D520097E3B2 /* GoogleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50413AA425689D520097E3B2 /* GoogleService.swift */; };
 		506337522562E1A0009E336E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506337512562E1A0009E336E /* Constants.swift */; };
@@ -55,6 +57,8 @@
 		3CFB10E726CCF05CDA226536 /* Pods-ChefcitoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChefcitoTests.debug.xcconfig"; path = "Target Support Files/Pods-ChefcitoTests/Pods-ChefcitoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		486AD1F943DFE82C16DD3DBC /* Pods_Chefcito.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chefcito.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50097B6D2565605B00F588E3 /* FaceBookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceBookService.swift; sourceTree = "<group>"; };
+		5023A9012579523200E1940E /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
+		5023A90625795DF600E1940E /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		50413A9C256893880097E3B2 /* Tokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokens.swift; sourceTree = "<group>"; };
 		50413AA425689D520097E3B2 /* GoogleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleService.swift; sourceTree = "<group>"; };
 		506337512562E1A0009E336E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 			children = (
 				506337512562E1A0009E336E /* Constants.swift */,
 				50413A9C256893880097E3B2 /* Tokens.swift */,
+				5023A90625795DF600E1940E /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				509107C1255F194A00FDC841 /* UserModel.swift */,
+				5023A9012579523200E1940E /* RecipeModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -492,10 +498,12 @@
 			files = (
 				50097B6E2565605B00F588E3 /* FaceBookService.swift in Sources */,
 				50910794255EFD3D00FDC841 /* LoginViewController.swift in Sources */,
+				5023A9022579523200E1940E /* RecipeModel.swift in Sources */,
 				509107BC255F10AC00FDC841 /* RegisterViewController.swift in Sources */,
 				50413A9D256893880097E3B2 /* Tokens.swift in Sources */,
 				509107B7255F0F6600FDC841 /* ViewUIElements.swift in Sources */,
 				50D94659255DFEEF003CC3DA /* AppDelegate.swift in Sources */,
+				5023A90725795DF600E1940E /* Utils.swift in Sources */,
 				509107C2255F194A00FDC841 /* UserModel.swift in Sources */,
 				50839D0A257071FC00AD27F0 /* NewRecipeViewController.swift in Sources */,
 				5083FEE9256DEBCE00A44CC6 /* ChefcitoViewController.swift in Sources */,

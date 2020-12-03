@@ -973,11 +973,17 @@
                                                                     <action selector="saveRecipe:" destination="mRF-Np-qcR" eventType="touchUpInside" id="Azn-CA-SVR"/>
                                                                 </connections>
                                                             </button>
+                                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Odk-5o-6uW">
+                                                                <rect key="frame" x="195.66666666666674" y="548.66666666666663" width="37" height="37"/>
+                                                                <color key="tintColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="color" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </activityIndicatorView>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="DfP-Uh-slt" secondAttribute="trailing" id="2Ov-fD-XU8"/>
                                                             <constraint firstItem="v3K-ut-uIJ" firstAttribute="leading" secondItem="34B-2U-fnj" secondAttribute="leading" id="2V5-h1-69i"/>
                                                             <constraint firstItem="JJJ-0m-LZX" firstAttribute="top" secondItem="2Hg-lM-nP1" secondAttribute="bottom" id="5Ds-6I-Lxc"/>
+                                                            <constraint firstItem="Odk-5o-6uW" firstAttribute="centerX" secondItem="vSp-K6-Fd8" secondAttribute="centerX" id="BGj-qB-TwW"/>
                                                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="vSp-K6-Fd8" secondAttribute="trailing" constant="80" id="DdD-8X-FQJ">
                                                                 <variation key="widthClass=regular" constant="136"/>
                                                             </constraint>
@@ -986,6 +992,7 @@
                                                             <constraint firstItem="2Hg-lM-nP1" firstAttribute="top" secondItem="34B-2U-fnj" secondAttribute="top" id="Mzj-iF-VCp"/>
                                                             <constraint firstItem="v3K-ut-uIJ" firstAttribute="top" secondItem="DfP-Uh-slt" secondAttribute="bottom" id="QBU-ZX-Ujp"/>
                                                             <constraint firstItem="2Hg-lM-nP1" firstAttribute="leading" secondItem="34B-2U-fnj" secondAttribute="leading" id="SuP-qZ-xz8"/>
+                                                            <constraint firstItem="Odk-5o-6uW" firstAttribute="centerY" secondItem="vSp-K6-Fd8" secondAttribute="centerY" id="Te7-Rs-lIm"/>
                                                             <constraint firstItem="JJJ-0m-LZX" firstAttribute="leading" secondItem="34B-2U-fnj" secondAttribute="leading" id="UyI-6g-OaW"/>
                                                             <constraint firstAttribute="trailing" secondItem="lBd-nJ-Qes" secondAttribute="trailing" id="VQk-my-R1O"/>
                                                             <constraint firstItem="lBd-nJ-Qes" firstAttribute="leading" secondItem="34B-2U-fnj" secondAttribute="leading" id="cZr-5q-mEv"/>
@@ -1121,6 +1128,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Nueva Receta" id="Tjj-64-Gvo"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Odk-5o-6uW" id="TGV-BB-gmQ"/>
                         <outlet property="alphaView" destination="O7x-Bd-vAd" id="wRG-W2-EoI"/>
                         <outlet property="btnImage" destination="UXR-FJ-95r" id="1yW-cw-3IT"/>
                         <outlet property="btnNextOne" destination="UUJ-kO-zBN" id="hhl-Yl-LOd"/>
