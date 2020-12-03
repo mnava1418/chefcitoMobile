@@ -60,6 +60,8 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
         imagePicker.delegate = self
         pickerCategory.dataSource = self
         pickerCategory.delegate = self
+        tableIngredients.dataSource = self
+        tableIngredients.delegate = self
         
         //Prepare buttons
         btnOne.tag = 1
@@ -124,6 +126,32 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
         }
     }
     
+    private func showIngredientForm () {
+        let ingredientForm = UIAlertController(title: "Nuevo Ingrediente", message: "", preferredStyle: .alert)
+        ingredientForm.addTextField { (textField) in
+            textField.placeholder = "Ingrediente"
+        }
+        
+        let okAction = UIAlertAction(title: "Ok", style: .default) { (action) in
+            if let newIngredientField = ingredientForm.textFields?[0], let newIngredient = newIngredientField.text  {
+                self.addIngredientToTable(ingredient: newIngredient)
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .destructive)
+        
+        ingredientForm.addAction(cancelAction)
+        ingredientForm.addAction(okAction)
+        
+        self.present(ingredientForm, animated: true)
+    }
+    
+    private func addIngredientToTable (ingredient: String) {
+        let indexPath: IndexPath = IndexPath(row: 0, section: 0)
+        self.ingredients.insert(ingredient, at: 0)
+        self.tableIngredients.insertRows(at: [indexPath], with: .fade)
+    }
+    
     @IBAction func scrollToPageBtn(_ sender: Any) {
         let btn = sender as! UIButton
         scrollToPage(page: btn.tag - 1)
@@ -135,6 +163,7 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
     }
     
     @IBAction func addIngredient(_ sender: Any) {
+        showIngredientForm()
     }
     
     @IBAction func saveRecipe(_ sender: Any) {
@@ -209,18 +238,19 @@ extension NewRecipeViewController: UIPickerViewDataSource, UIPickerViewDelegate 
 }
 
 // MARK: - Table View
-/*extension NewRecipeViewController: UITableViewDataSource, UITableViewDelegate {
+extension NewRecipeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ingredients.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        cell.backgroundColor = tableIngredients.backgroundColor
         cell.textLabel?.text = ingredients[indexPath.row]
         return cell
     }
     
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    /*func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { (action, view, compretionHandler) in
             self.ingredients.remove(at: indexPath.row)
             self.ingredientTable.reloadData()
@@ -232,5 +262,5 @@ extension NewRecipeViewController: UIPickerViewDataSource, UIPickerViewDelegate 
         let actions = UISwipeActionsConfiguration(actions: [deleteAction])
         actions.performsFirstActionWithFullSwipe = true
         return actions
-    }
-}*/
+    }*/
+}
