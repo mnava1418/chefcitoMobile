@@ -261,7 +261,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="rUd-ee-6Lq" kind="relationship" relationship="viewControllers" id="qRh-ht-csN"/>
-                        <segue destination="vUL-iI-IVT" kind="relationship" relationship="viewControllers" id="zZu-yC-LKc"/>
                         <segue destination="bJ6-w8-QMr" kind="relationship" relationship="viewControllers" id="4NJ-MZ-YvD"/>
                         <segue destination="Ack-z3-Bxd" kind="relationship" relationship="viewControllers" id="IoG-1h-MOF"/>
                         <segue destination="97C-Be-lqG" kind="relationship" relationship="viewControllers" id="Vl4-6U-pmb"/>
@@ -270,45 +269,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Qb-1h-Nz6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1325" y="124"/>
-        </scene>
-        <!--Menus-->
-        <scene sceneID="j81-sp-Fep">
-            <objects>
-                <navigationController id="vUL-iI-IVT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Menus" image="book.fill" catalog="system" id="BDB-JA-Vsa"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="wo1-ye-Hmw">
-                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.27833069900000001" green="0.38485386869999999" blue="0.53390472919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="GDl-qJ-2Xq" kind="relationship" relationship="rootViewController" id="F9V-eD-TIN"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mVw-PQ-5ba" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2400" y="-560"/>
-        </scene>
-        <!--Menus-->
-        <scene sceneID="7UK-Jk-uYC">
-            <objects>
-                <viewController id="GDl-qJ-2Xq" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Std-Kn-pWj">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="755"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="ndu-cN-2HE"/>
-                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Menus" id="wm9-Hp-0oZ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VVB-iL-s63" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3498" y="-560"/>
         </scene>
         <!--Favoritos-->
         <scene sceneID="Rnt-HU-l7r">
@@ -331,7 +291,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aac-DP-UOc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2400" y="242"/>
+            <point key="canvasLocation" x="2400" y="-187"/>
         </scene>
         <!--Favoritos-->
         <scene sceneID="HLh-Ko-UfO">
@@ -347,7 +307,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EWT-BW-vCt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3498" y="242"/>
+            <point key="canvasLocation" x="3449" y="-187"/>
         </scene>
         <!--Buscar-->
         <scene sceneID="snP-3C-jQe">
@@ -370,7 +330,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OFp-87-nSP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2400" y="1029"/>
+            <point key="canvasLocation" x="2400" y="479"/>
         </scene>
         <!--Perfil-->
         <scene sceneID="wYD-8a-gO2">
@@ -393,7 +353,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fjx-qt-iTY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2400" y="1766"/>
+            <point key="canvasLocation" x="2400" y="1374"/>
         </scene>
         <!--Buscar-->
         <scene sceneID="c5d-ni-oHv">
@@ -409,7 +369,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ivn-WK-sv3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3498" y="1029"/>
+            <point key="canvasLocation" x="3449" y="479"/>
         </scene>
         <!--Perfil-->
         <scene sceneID="rmL-zA-v52">
@@ -425,7 +385,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ee-cu-0LS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3498" y="1766"/>
+            <point key="canvasLocation" x="3449" y="1374"/>
         </scene>
         <!--Chefcito-->
         <scene sceneID="K4N-n8-7fS">
@@ -449,7 +409,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UvI-vT-hpC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2400" y="-1398"/>
+            <point key="canvasLocation" x="2400" y="-956"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="WEu-BI-oCT">
@@ -622,7 +582,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6SH-Jp-bHo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3498" y="-1398"/>
+            <point key="canvasLocation" x="3449" y="-956"/>
         </scene>
         <!--Nueva Receta-->
         <scene sceneID="Cej-RO-Ul3">
@@ -1179,7 +1139,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CvQ-wZ-iZ4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4509.8130841121492" y="-1398.2721382289417"/>
+            <point key="canvasLocation" x="4424" y="-1518"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -1189,7 +1149,6 @@
         <image name="1.circle" catalog="system" width="128" height="121"/>
         <image name="2.circle" catalog="system" width="128" height="121"/>
         <image name="3.circle" catalog="system" width="128" height="121"/>
-        <image name="book.fill" catalog="system" width="128" height="102"/>
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>
         <image name="facebookLogo" width="20" height="20"/>
         <image name="googleLogo" width="18" height="18"/>
