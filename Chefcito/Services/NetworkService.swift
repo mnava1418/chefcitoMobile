@@ -20,16 +20,17 @@ struct NetWorkService {
         }
     }
     
-    public static func httpUpload (url: String, data: Data, paramName: String, fileName: String, mimeType: String ) {
+    public static func httpUpload (url: String, method:HTTPMethod, parameters: [String:String], data: Data, paramName: String, fileName: String, mimeType: String, completion: @escaping (Int, Dictionary<String, Any>) -> Void ) {
         AF.upload(multipartFormData: {multipartFormData in
             multipartFormData.append(data, withName: paramName, fileName: fileName, mimeType: mimeType)
-        }, to: "\(Constants.HOST)\(url)").responseJSON(completionHandler: { (response) in
+            for (key, value) in parameters {
+                multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
+            }
+        }, to: "\(Constants.HOST)\(url)", method: method ).responseJSON(completionHandler: { (response) in
             let parseResponse = self.parseHttpResponse(response: response)
             let finalStatus:Int = parseResponse["finalStatus"] as! Int
             let finalJson:[String: Any] = parseResponse["finalJson"] as! [String : Any]
-            
-            print(finalJson)
-            print(finalStatus)
+            completion(finalStatus, finalJson)
         })
     }
     
