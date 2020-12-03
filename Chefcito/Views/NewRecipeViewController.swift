@@ -56,7 +56,6 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
     
     private func prepareViewElements() {
         //Prepare data sources and delegates
-        scrollView.delegate = self
         imagePicker.delegate = self
         pickerCategory.dataSource = self
         pickerCategory.delegate = self
@@ -203,13 +202,6 @@ extension UIScrollView {
     }
 }
 
-// MARK: - UIScrollViewDelegate
-extension NewRecipeViewController: UIScrollViewDelegate {
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        setIndicators(currentPage: scrollView.currentPage)
-    }
-}
-
 // Mark: - UIImagePickerControllerDelegate
 extension NewRecipeViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -250,8 +242,13 @@ extension NewRecipeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        let selectedView = UIView()
+        selectedView.backgroundColor = tableIngredients.backgroundColor
         cell.backgroundColor = tableIngredients.backgroundColor
+        cell.selectedBackgroundView = selectedView
+        cell.textLabel?.textColor = .black
         cell.textLabel?.text = ingredients[indexPath.row]
+        
         return cell
     }
     
