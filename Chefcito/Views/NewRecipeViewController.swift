@@ -172,6 +172,18 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
         txtInstructions.resignFirstResponder()
     }
     
+    private func showHttpResponse(title: String, message: String, isError: Bool) {
+        let alertView = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default) { (action) in
+            if !isError {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        
+        alertView.addAction(alertAction)
+        self.present(alertView, animated: true)
+    }
+    
     @IBAction func scrollToPageBtn(_ sender: Any) {
         hideKeyBoard()
         let btn = sender as! UIButton
@@ -198,17 +210,27 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
         let currentRecipe:RecipeModel = RecipeModel(name: inputName.text!, category: categories[categorySelected], ingredients: ingredients, instructions: txtInstructions.text!, count: count, image: imgRecipe.image)
         let validationResult:RecipeModel.RecipeError = currentRecipe.validateRecipe()
         
+        var title = "Error"
+        var message = Constants.GENERIC_ERROR
+        var isError = true
+        
         if validationResult == .valid {
             currentRecipe.createRecipe { (status, json) in
                 self.activityIndicator.stopAnimating()
                 self.btnSave.setTitle("Guardar", for: .normal)
-                print(status)
-                print(json)
+                
+                if status == 200 {
+                    title = "Listo!"
+                    message = "Tu receta ha sido creada."
+                    isError = false
+                }
+                
+                self.showHttpResponse(title: title, message: message, isError: isError)
             }
         } else {
             self.activityIndicator.stopAnimating()
             self.btnSave.setTitle("Guardar", for: .normal)
-            print("Ya mamo")
+            self.showHttpResponse(title: title, message: validationResult.rawValue, isError: isError)
         }
     }
     
