@@ -152,6 +152,11 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
         self.tableIngredients.insertRows(at: [indexPath], with: .fade)
     }
     
+    private func removeIngredientFromTable (indexPath: IndexPath) {
+        self.ingredients.remove(at: indexPath.row)
+        self.tableIngredients.deleteRows(at: [indexPath], with: .fade)
+    }
+    
     @IBAction func scrollToPageBtn(_ sender: Any) {
         let btn = sender as! UIButton
         scrollToPage(page: btn.tag - 1)
@@ -250,10 +255,9 @@ extension NewRecipeViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    /*func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { (action, view, compretionHandler) in
-            self.ingredients.remove(at: indexPath.row)
-            self.ingredientTable.reloadData()
+            self.removeIngredientFromTable(indexPath: indexPath)
         }
         
         deleteAction.backgroundColor = .red
@@ -262,5 +266,5 @@ extension NewRecipeViewController: UITableViewDataSource, UITableViewDelegate {
         let actions = UISwipeActionsConfiguration(actions: [deleteAction])
         actions.performsFirstActionWithFullSwipe = true
         return actions
-    }*/
+    }
 }
