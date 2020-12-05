@@ -44,6 +44,10 @@ struct UserModel {
        let isValid = validatePassord.evaluate(with: password)
        return isValid
     }
+    
+    private static func resetUserDefaults() {
+        UserDefaults.standard.set(nil, forKey: Constants.TOKEN_KEY)
+    }
   
     public func validateUser() -> UserError {
         
@@ -103,5 +107,14 @@ struct UserModel {
         }
         
         return false
+    }
+    
+    public static func logout() {
+        self.resetUserDefaults()
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as! SceneDelegate
+        let viewController = storyBoard.instantiateViewController(identifier: "mainChefcito")
+        sceneDelegate.window?.rootViewController = viewController
     }
 }

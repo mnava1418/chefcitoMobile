@@ -16,7 +16,12 @@ struct NetWorkService {
             let parseResponse = self.parseHttpResponse(response: response)
             let finalStatus:Int = parseResponse["finalStatus"] as! Int
             let finalJson:[String: Any] = parseResponse["finalJson"] as! [String : Any]
-            completion(finalStatus, finalJson)
+            
+            if isAuthorizedUser(status: finalStatus) {
+                completion(finalStatus, finalJson)
+            } else {
+                UserModel.logout()
+            }
         }
     }
     
@@ -30,7 +35,12 @@ struct NetWorkService {
             let parseResponse = self.parseHttpResponse(response: response)
             let finalStatus:Int = parseResponse["finalStatus"] as! Int
             let finalJson:[String: Any] = parseResponse["finalJson"] as! [String : Any]
-            completion(finalStatus, finalJson)
+            
+            if isAuthorizedUser(status: finalStatus) {
+                completion(finalStatus, finalJson)
+            } else {
+                UserModel.logout()
+            }
         })
     }
     
@@ -51,5 +61,13 @@ struct NetWorkService {
         
         let result:[String: Any] = ["finalStatus": finalStatus, "finalJson": finalJson]
         return result
+    }
+    
+    private static func isAuthorizedUser(status: Int) -> Bool {
+        if status == 401 {
+            return false
+        } else {
+            return true
+        }
     }
 }
