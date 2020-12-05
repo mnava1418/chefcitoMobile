@@ -109,6 +109,14 @@ struct UserModel {
         return false
     }
     
+    public static func getToken() -> String {
+        guard let token = UserDefaults.standard.string(forKey: Constants.TOKEN_KEY) else {
+            return ""
+        }
+        
+        return token
+    }
+    
     public static func logout() {
         self.resetUserDefaults()
         

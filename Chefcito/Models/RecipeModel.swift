@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 struct RecipeModel {
     private let name: String!
@@ -15,6 +16,7 @@ struct RecipeModel {
     private let instructions: String!
     private let count: Int!
     private let imageData: Data?
+    private var headers:HTTPHeaders = ["token": UserModel.getToken()]
     
     public enum RecipeError: String {
         case valid = "Receta válida."
@@ -56,7 +58,7 @@ struct RecipeModel {
     public func createRecipe(completion: @escaping (Int, Dictionary<String,Any>) -> Void) {
         let ingredientsString = parseIngredients()
         let body:[String:String] = ["name":name, "category":category, "ingredients":ingredientsString, "count":String(count), "instructions":instructions]
-        NetWorkService.httpUpload(url: "/recipe/create", method: .post, parameters: body, data: imageData!, paramName: "image", fileName: "recipe.jpeg", mimeType: "image/jpg") { (status, json) in
+        NetWorkService.httpUpload(url: "/recipe/create", method: .post, headers: headers, parameters: body, data: imageData!, paramName: "image", fileName: "recipe.jpeg", mimeType: "image/jpg") { (status, json) in
             completion(status, json)
         }
     }
