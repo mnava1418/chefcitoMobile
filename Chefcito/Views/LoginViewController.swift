@@ -117,6 +117,8 @@ class LoginViewController: UIViewController {
     
     @IBAction func googleLogin(_ sender: Any) {
         hideKeyBoard()
+        txtError.isHidden = true
+        activityIndicator.startAnimating()
         GIDSignIn.sharedInstance()?.signIn()
     }
     
