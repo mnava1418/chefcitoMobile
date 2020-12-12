@@ -20,7 +20,7 @@ class ChefcitoItemsViewController: UIViewController {
     
     @IBOutlet weak var viewPostres: UIView!
     @IBOutlet weak var postresCollectionView: UICollectionView!
-    //"Postre"
+    
     var reloadData = true
 
     override func viewDidLoad() {
@@ -28,25 +28,16 @@ class ChefcitoItemsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setNavBar()
-        prepareCollectionViews()
+        let collectionViews:[UICollectionView] = [entradastCollectionView, sopasCollectionView, platoCollectionView, postresCollectionView]
+        prepareCollectionViews(collectionViews: collectionViews)
     }
     
-    private func prepareCollectionViews() {
-        entradastCollectionView.dataSource = self
-        entradastCollectionView.delegate = self
-        entradastCollectionView.register(UINib(nibName: "RecipeMainViewCell", bundle: nil), forCellWithReuseIdentifier: "recipeMainCell")
-        
-        sopasCollectionView.dataSource = self
-        sopasCollectionView.delegate = self
-        sopasCollectionView.register(UINib(nibName: "RecipeMainViewCell", bundle: nil), forCellWithReuseIdentifier: "recipeMainCell")
-        
-        platoCollectionView.dataSource = self
-        platoCollectionView.delegate = self
-        platoCollectionView.register(UINib(nibName: "RecipeMainViewCell", bundle: nil), forCellWithReuseIdentifier: "recipeMainCell")
-        
-        postresCollectionView.dataSource = self
-        postresCollectionView.delegate = self
-        postresCollectionView.register(UINib(nibName: "RecipeMainViewCell", bundle: nil), forCellWithReuseIdentifier: "recipeMainCell")
+    private func prepareCollectionViews(collectionViews:[UICollectionView]) {
+        for item in collectionViews {
+            item.dataSource = self
+            item.delegate = self
+            item.register(UINib(nibName: "RecipeMainViewCell", bundle: nil), forCellWithReuseIdentifier: "recipeMainCell")
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
