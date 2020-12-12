@@ -45,9 +45,11 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
     private let categories = ["Entrada", "Sopa", "Plato fuerte", "Postre"]
     private var ingredients:[String] = []
     
+    var originalVC: ChefcitoItemsViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         primaryColor = btnOne.tintColor
         secondaryColor = btnTwo.tintColor
@@ -176,6 +178,9 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
         let alertView = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "Ok", style: .default) { (action) in
             if !isError {
+                if let oVC = self.originalVC {
+                    oVC.reloadData = true
+                }
                 self.navigationController?.popViewController(animated: true)
             }
         }
@@ -325,7 +330,7 @@ extension NewRecipeViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-// MARK: - Table View
+// MARK: - UITextFieldDelegate
 extension NewRecipeViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         hideKeyBoard()
