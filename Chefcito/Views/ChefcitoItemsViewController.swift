@@ -7,6 +7,13 @@
 
 import UIKit
 
+enum RecipeCategories: String {
+    case entradas = "Entradas"
+    case sopas = "Sopas"
+    case platos = "Platos Fuertes"
+    case postres = "Postres"
+}
+
 class ChefcitoItemsViewController: UIViewController {
     
     @IBOutlet weak var entradastCollectionView: UICollectionView!
@@ -21,7 +28,9 @@ class ChefcitoItemsViewController: UIViewController {
     @IBOutlet weak var viewPostres: UIView!
     @IBOutlet weak var postresCollectionView: UICollectionView!
     
+    let limit = 5
     var reloadData = true
+    var recipesByCategory:[String: Array<RecipeModel>] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,10 +63,34 @@ class ChefcitoItemsViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = addButton
     }
     
+    private func showMessage() {
+        let alert = UIAlertController(title: "Error", message: Constants.GENERIC_ERROR, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(alertAction)
+        self.present(alert, animated: true)
+    }
+    
     private func getCurrentRecipes() {
-        print("Vamos a sacar todo")
-        reloadData = false
-        
+        RecipeModel.getRecipesByCategory { (status, json) in
+            if status == 200 {
+                if let recipesCategory = json["recipes"] as? Dictionary<String, Any> {
+                    for (category, recipes) in recipesCategory  {
+                        if self.recipesByCategory[category] == nil {
+                            self.recipesByCategory[category] = []
+                        }
+                        
+                        for recipe in recipes as! [Dictionary<String, Any>]{
+                            let currentRecipe = RecipeModel(name: recipe["name"] as! String, category: category, ingredients: recipe["ingredients"] as! [String], instructions: recipe["instructions"] as! String, count: recipe["count"] as! Int, image: nil)
+                            //fileName = "5fd512657f6f2707b56ed6f6|5fdaa68ab28d560e9630f240.jpeg";
+                            self.recipesByCategory[category]!.append(currentRecipe)
+                        }
+                     }
+                }
+                self.reloadData = false
+            } else {
+                self.showMessage()
+            }
+        }
     }
   
     @objc private func addItem() {
@@ -89,6 +122,4 @@ extension ChefcitoItemsViewController: UICollectionViewDataSource, UICollectionV
         let size = CGSize(width: 280, height: 168)
         return size
     }
-    
-
 }

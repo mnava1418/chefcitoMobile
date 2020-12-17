@@ -62,4 +62,11 @@ struct RecipeModel {
             completion(status, json)
         }
     }
+    
+    public static func getRecipesByCategory(completion: @escaping (Int, Dictionary<String, Any>) -> Void) {
+        let headers:HTTPHeaders = ["token": UserModel.getToken(), "Content-Type": "application/x-www-form-urlencoded"]
+        NetWorkService.httpRequest(url: "/recipe", method: .get, parameters: [:], headers: headers) { (status, json) in
+            completion(status, json)
+        }
+    }
 }
