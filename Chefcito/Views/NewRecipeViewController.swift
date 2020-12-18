@@ -42,7 +42,7 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
     private var secondaryColor: UIColor!
     private var imagePicker: UIImagePickerController = UIImagePickerController()
     
-    private let categories = ["Entrada", "Sopa", "Plato fuerte", "Postre"]
+    private let categories:[RecipeModel.RecipeCategories] = [.entrada, .sopa, .plato, .postre]
     private var ingredients:[String] = []
     
     var originalVC: ChefcitoItemsViewController?
@@ -174,12 +174,13 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
         txtInstructions.resignFirstResponder()
     }
     
-    private func showHttpResponse(title: String, message: String, isError: Bool) {
+    private func showHttpResponse(title: String, message: String, isError: Bool, recipeModel: RecipeModel?) {
         let alertView = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "Ok", style: .default) { (action) in
             if !isError {
                 if let oVC = self.originalVC {
-                    oVC.reloadData = true
+                    oVC.recipesByCategory[recipeModel!.getCategory()]?.insert(recipeModel!, at: 0)
+                    oVC.reloadCollectionViews()
                 }
                 self.navigationController?.popViewController(animated: true)
             }
@@ -212,7 +213,7 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
         let count = Utils.parseInt(value: inputNum.text!)
         let categorySelected = pickerCategory.selectedRow(inComponent: 0)
         
-        let currentRecipe:RecipeModel = RecipeModel(name: inputName.text!, category: categories[categorySelected], ingredients: ingredients, instructions: txtInstructions.text!, count: count, image: imgRecipe.image)
+        let currentRecipe:RecipeModel = RecipeModel(name: inputName.text!, category: categories[categorySelected].rawValue, ingredients: ingredients, instructions: txtInstructions.text!, count: count, image: imgRecipe.image)
         let validationResult:RecipeModel.RecipeError = currentRecipe.validateRecipe()
         
         var title = "Error"
@@ -230,12 +231,12 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
                     isError = false
                 }
                 
-                self.showHttpResponse(title: title, message: message, isError: isError)
+                self.showHttpResponse(title: title, message: message, isError: isError, recipeModel: currentRecipe)
             }
         } else {
             self.activityIndicator.stopAnimating()
             self.btnSave.setTitle("Guardar", for: .normal)
-            self.showHttpResponse(title: title, message: validationResult.rawValue, isError: isError)
+            self.showHttpResponse(title: title, message: validationResult.rawValue, isError: isError, recipeModel: nil)
         }
     }
     
@@ -291,7 +292,7 @@ extension NewRecipeViewController: UIPickerViewDataSource, UIPickerViewDelegate 
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let text = categories[row]
+        let text = categories[row].rawValue
         let attributedText = NSAttributedString(string: text, attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         
         return attributedText

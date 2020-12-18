@@ -16,11 +16,19 @@ struct RecipeModel {
     private let instructions: String!
     private let count: Int!
     private let imageData: Data?
+    private let image:UIImage?
     private var headers:HTTPHeaders = ["token": UserModel.getToken()]
     
     public enum RecipeError: String {
         case valid = "Receta válida."
         case mandatory = "Todos los campos son obligatorios."
+    }
+    
+    public enum RecipeCategories: String {
+        case entrada = "Entrada"
+        case sopa = "Sopa"
+        case plato = "Plato fuerte"
+        case postre = "Postre"
     }
     
     init(name: String, category: String, ingredients: [String], instructions: String, count: Int, image: UIImage? ) {
@@ -31,10 +39,26 @@ struct RecipeModel {
         self.count = count
         
         if image != nil {
-            self.imageData = image?.jpegData(compressionQuality: 0.5)
+            self.imageData = image?.jpegData(compressionQuality: 0.2)
+            self.image = image
         } else {
             self.imageData = nil
+            self.image = nil
         }
+    }
+    
+    //Getters
+    
+    public func getName() -> String {
+        return self.name
+    }
+    
+    public func getImage() -> UIImage? {
+        return self.image
+    }
+    
+    public func getCategory() -> String {
+        return self.category
     }
     
     public func validateRecipe() -> RecipeError {

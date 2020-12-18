@@ -27,7 +27,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prueba" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGS-qI-JeP">
-                                <rect key="frame" x="16" y="128" width="54.5" height="24"/>
+                                <rect key="frame" x="16" y="128" width="208" height="24"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -46,6 +46,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bNu-06-y5j" secondAttribute="trailing" id="3IG-P0-nqs"/>
                             <constraint firstItem="bNu-06-y5j" firstAttribute="leading" secondItem="kid-Xj-XIl" secondAttribute="leading" id="CNA-L7-bsj"/>
+                            <constraint firstItem="nKg-PT-mKz" firstAttribute="leading" secondItem="ZGS-qI-JeP" secondAttribute="trailing" constant="16" id="F6w-G1-q3L"/>
                             <constraint firstItem="ZGS-qI-JeP" firstAttribute="top" secondItem="bNu-06-y5j" secondAttribute="bottom" constant="16" id="H2y-xY-hfV"/>
                             <constraint firstItem="nKg-PT-mKz" firstAttribute="centerY" secondItem="ZGS-qI-JeP" secondAttribute="centerY" id="cDI-KC-GhR"/>
                             <constraint firstAttribute="bottom" secondItem="ZGS-qI-JeP" secondAttribute="bottom" constant="16" id="qhd-8S-mIe"/>
@@ -63,6 +64,11 @@
                 <constraint firstItem="kid-Xj-XIl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="f9w-V8-Ou6"/>
                 <constraint firstAttribute="bottom" secondItem="kid-Xj-XIl" secondAttribute="bottom" id="qlN-of-Ehp"/>
             </constraints>
+            <connections>
+                <outlet property="image" destination="bNu-06-y5j" id="8La-lw-V5m"/>
+                <outlet property="isFavorite" destination="nKg-PT-mKz" id="Mom-s0-fOH"/>
+                <outlet property="name" destination="ZGS-qI-JeP" id="Gl6-1g-7Ld"/>
+            </connections>
             <point key="canvasLocation" x="0.0" y="29"/>
         </collectionViewCell>
     </objects>
