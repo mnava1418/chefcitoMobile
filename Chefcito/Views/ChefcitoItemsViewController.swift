@@ -57,13 +57,13 @@ class ChefcitoItemsViewController: UIViewController {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recipeMainCell", for: indexPath) as! RecipeMainViewCell
             cell.name.text = recipe.getName()
                         
-            if let recipeImage = recipe.image {
+            if let recipeImage = recipe.getImage() {
                 cell.image.image = recipeImage
             } else if recipe.getImageURL() != nil && self.downloadedURLs[recipe.getImageURL()!.absoluteString] == nil{
                 self.loadImage(url: recipe.getImageURL()!) { image in
                     cell.image.image = image
                     cell.reloadInputViews()
-                    self.recipesByCategory[recipe.getCategory()]![indexPath.row].image = image
+                    self.recipesByCategory[recipe.getCategory()]![indexPath.row].setImage(image: image)
                     self.downloadedURLs[recipe.getImageURL()!.absoluteString] = recipe.getImageURL()!.absoluteString
                 }
             }

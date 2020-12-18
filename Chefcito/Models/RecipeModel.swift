@@ -14,15 +14,15 @@ enum Section {
 }
 
 class RecipeModel: Hashable {
-    private let name: String!
-    private let category: String!
-    private let ingredients: [String]!
-    private let instructions: String!
-    private let count: Int!
-    private let imageData: Data?
-    public var image:UIImage?
-    private let imageURL: URL?
-    private let identifier = UUID()
+    private var name: String!
+    private var category: String!
+    private var ingredients: [String]!
+    private var instructions: String!
+    private var count: Int!
+    private var imageData: Data?
+    private var image:UIImage?
+    private var imageURL: URL?
+    private var identifier = UUID()
     private var headers:HTTPHeaders = ["token": UserModel.getToken()]
     
     public enum RecipeError: String {
@@ -75,6 +75,15 @@ class RecipeModel: Hashable {
     
     public func getImageURL() -> URL? {
         return self.imageURL
+    }
+    
+    public func getImage() -> UIImage? {
+        return self.image
+    }
+    
+    // MARK: - Setters
+    public func setImage(image: UIImage) {
+        self.image = image
     }
     
     // MARK: - Methods
