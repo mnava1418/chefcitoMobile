@@ -96,7 +96,6 @@ class ChefcitoItemsViewController: UIViewController {
     }
     
     private func loadImage(url: URL, completion: @escaping(UIImage) -> Void) {
-        print("Vamos a cargar")
         DispatchQueue.global().async {
             if let data = try? Data(contentsOf: url) {
                 if let image = UIImage(data: data) {
