@@ -59,12 +59,33 @@ class ChefcitoItemsViewController: UIViewController {
                         
             if let recipeImage = recipe.getImage() {
                 cell.image.image = recipeImage
+                return cell
             } else if recipe.getImageURL() != nil && self.downloadedURLs[recipe.getImageURL()!.absoluteString] == nil{
+                cell.image.image = UIImage(named: "receta")
                 self.loadImage(url: recipe.getImageURL()!) { image in
-                    cell.image.image = image
-                    cell.reloadInputViews()
-                    self.recipesByCategory[recipe.getCategory()]![indexPath.row].setImage(image: image)
-                    self.downloadedURLs[recipe.getImageURL()!.absoluteString] = recipe.getImageURL()!.absoluteString
+                    var dataSource:UICollectionViewDiffableDataSource<Section, RecipeModel>?
+                    
+                    switch recipe.getCategory(){
+                    case RecipeModel.RecipeCategories.entrada.rawValue:
+                        dataSource = self.entradasDataSource
+                    case RecipeModel.RecipeCategories.sopa.rawValue:
+                        dataSource = self.sopasDataSource
+                    case RecipeModel.RecipeCategories.plato.rawValue:
+                        dataSource = self.platoDataSource
+                    case RecipeModel.RecipeCategories.postre.rawValue:
+                        dataSource = self.postresDataSource
+                    default:
+                        print("Invalid category")
+                    }
+                    
+                    if let currentDataSource = dataSource {
+                        var updatedSnapshot = currentDataSource.snapshot()
+                        recipe.setImage(image: image)
+                        self.recipesByCategory[recipe.getCategory()]![indexPath.row] = recipe
+                        self.downloadedURLs[recipe.getImageURL()!.absoluteString] = recipe.getImageURL()!.absoluteString
+                        updatedSnapshot.reloadItems([recipe])
+                        currentDataSource.apply(updatedSnapshot, animatingDifferences: true)
+                    }
                 }
             }
             
@@ -75,6 +96,7 @@ class ChefcitoItemsViewController: UIViewController {
     }
     
     private func loadImage(url: URL, completion: @escaping(UIImage) -> Void) {
+        print("Vamos a cargar")
         DispatchQueue.global().async {
             if let data = try? Data(contentsOf: url) {
                 if let image = UIImage(data: data) {
