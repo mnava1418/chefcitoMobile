@@ -19,38 +19,93 @@ class ChefcitoItemsViewController: UIViewController {
     
     @IBOutlet weak var entradastCollectionView: UICollectionView!
     @IBOutlet weak var viewEntradas: UIView!
+    var entradasDataSource:UICollectionViewDiffableDataSource<Section, RecipeModel>! = nil
     
     @IBOutlet weak var viewSopas: UIView!
     @IBOutlet weak var sopasCollectionView: UICollectionView!
+    var sopasDataSource:UICollectionViewDiffableDataSource<Section, RecipeModel>! = nil
     
     @IBOutlet weak var viewPlato: UIView!
     @IBOutlet weak var platoCollectionView: UICollectionView!
+    var platoDataSource:UICollectionViewDiffableDataSource<Section, RecipeModel>! = nil
     
     @IBOutlet weak var viewPostres: UIView!
     @IBOutlet weak var postresCollectionView: UICollectionView!
+    var postresDataSource:UICollectionViewDiffableDataSource<Section, RecipeModel>! = nil
     
     let limit = 5
     var recipesByCategory:[String: Array<RecipeModel>] = [:]
-
+    var downloadedURLs:[String:String] = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setNavBar()
-        let collectionViews:[UICollectionView] = [entradastCollectionView, sopasCollectionView, platoCollectionView, postresCollectionView]
-        prepareCollectionViews(collectionViews: collectionViews)
-        getCurrentRecipes()
+                
+        prepareCollectionViews()
+        
+        if recipesByCategory.isEmpty {
+            getCurrentRecipes()
+        }
     }
     
-    private func prepareCollectionViews(collectionViews:[UICollectionView]) {
-        var tag = 0
-        for item in collectionViews {
-            item.dataSource = self
-            item.delegate = self
-            item.tag = tag
-            item.register(UINib(nibName: "RecipeMainViewCell", bundle: nil), forCellWithReuseIdentifier: "recipeMainCell")
-            tag += 1
+    private func getDataSource(collectionView: UICollectionView) -> UICollectionViewDiffableDataSource<Section, RecipeModel> {
+        let dataSource = UICollectionViewDiffableDataSource<Section, RecipeModel>(collectionView: collectionView) {
+            (collectionView: UICollectionView, indexPath: IndexPath, recipe: RecipeModel) -> UICollectionViewCell? in
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recipeMainCell", for: indexPath) as! RecipeMainViewCell
+            cell.name.text = recipe.getName()
+                        
+            if let recipeImage = recipe.image {
+                cell.image.image = recipeImage
+            } else if recipe.getImageURL() != nil && self.downloadedURLs[recipe.getImageURL()!.absoluteString] == nil{
+                self.loadImage(url: recipe.getImageURL()!) { image in
+                    cell.image.image = image
+                    cell.reloadInputViews()
+                    self.recipesByCategory[recipe.getCategory()]![indexPath.row].image = image
+                    self.downloadedURLs[recipe.getImageURL()!.absoluteString] = recipe.getImageURL()!.absoluteString
+                }
+            }
+            
+            return cell
         }
+        
+        return dataSource
+    }
+    
+    private func loadImage(url: URL, completion: @escaping(UIImage) -> Void) {
+        DispatchQueue.global().async {
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        completion(image)
+                    }
+                }
+            }
+        }
+    }
+    
+    private func prepareCollectionViews() {
+        self.entradastCollectionView.register(UINib(nibName: "RecipeMainViewCell", bundle: nil), forCellWithReuseIdentifier: "recipeMainCell")
+        self.entradastCollectionView.delegate = self
+        self.entradasDataSource = getDataSource(collectionView: self.entradastCollectionView)
+        self.entradastCollectionView.dataSource = self.entradasDataSource
+        
+        self.sopasCollectionView.register(UINib(nibName: "RecipeMainViewCell", bundle: nil), forCellWithReuseIdentifier: "recipeMainCell")
+        self.sopasCollectionView.delegate = self
+        self.sopasDataSource = getDataSource(collectionView: self.sopasCollectionView)
+        self.sopasCollectionView.dataSource = self.sopasDataSource
+        
+        self.platoCollectionView.register(UINib(nibName: "RecipeMainViewCell", bundle: nil), forCellWithReuseIdentifier: "recipeMainCell")
+        self.platoCollectionView.delegate = self
+        self.platoDataSource = getDataSource(collectionView: self.platoCollectionView)
+        self.platoCollectionView.dataSource = self.platoDataSource
+                
+        self.postresCollectionView.register(UINib(nibName: "RecipeMainViewCell", bundle: nil), forCellWithReuseIdentifier: "recipeMainCell")
+        self.postresCollectionView.delegate = self
+        self.postresDataSource = getDataSource(collectionView: self.postresCollectionView)
+        self.postresCollectionView.dataSource = self.postresDataSource
     }
     
     private func setNavBar() {
@@ -77,23 +132,16 @@ class ChefcitoItemsViewController: UIViewController {
                         }
                         
                         for recipe in recipes as! [Dictionary<String, Any>]{
-                            let urlStr = "\(Constants.HOST)/recipes/\(recipe["fileName"] as! String)"
-                            var recipeImage: UIImage? = nil
+                            let fileName = recipe["fileName"] as! String
+                            let urlStr = "\(Constants.HOST)/recipes/\(fileName)"
+                            let encodedURL = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+                            var imageURL: URL?
                             
-                            if let encodedUrl = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed){
-                                let url = URL(string: encodedUrl)
-                            
-                                do {
-                                    let data = try Data(contentsOf: url!)
-                                    recipeImage = UIImage(data: data)
-                                } catch {
-                                    self.showMessage()
-                                }
-                            } else {
-                                self.showMessage()
+                            if let url = encodedURL {
+                                imageURL = URL(string: url)
                             }
                             
-                            let currentRecipe = RecipeModel(name: recipe["name"] as! String, category: category, ingredients: recipe["ingredients"] as! [String], instructions: recipe["instructions"] as! String, count: recipe["count"] as! Int, image: recipeImage)
+                            let currentRecipe = RecipeModel(name: recipe["name"] as! String, category: category, ingredients: recipe["ingredients"] as! [String], instructions: recipe["instructions"] as! String, count: recipe["count"] as! Int, image: nil, imageURL: imageURL)
                         
                             self.recipesByCategory[category]!.append(currentRecipe)
                         }
@@ -107,39 +155,39 @@ class ChefcitoItemsViewController: UIViewController {
     }
     
     public func reloadCollectionViews() {
-        let collectionViews:[UICollectionView] = [self.entradastCollectionView, self.sopasCollectionView, self.platoCollectionView, self.postresCollectionView]
-        for item in collectionViews {
-            item.reloadData()
+        for category in RecipeModel.RecipeCategories.allCases {
+            var hideView = false
+            var recipes:[RecipeModel] = []
+            
+            if let recipesTemp = self.recipesByCategory[category.rawValue] {
+                hideView = false
+                recipes = recipesTemp
+            } else {
+                hideView = true
+                recipes.removeAll()
+            }
+            
+            var initialSnapshot = NSDiffableDataSourceSnapshot<Section, RecipeModel>()
+            initialSnapshot.appendSections([.main])
+            initialSnapshot.appendItems(recipes)
+            
+            switch category {
+            case .entrada:
+                self.viewEntradas.isHidden = hideView
+                self.entradasDataSource.apply(initialSnapshot, animatingDifferences: true)
+            case .sopa:
+                self.viewSopas.isHidden = hideView
+                self.sopasDataSource.apply(initialSnapshot, animatingDifferences: true)
+            case .plato:
+                self.viewPlato.isHidden = hideView
+                self.platoDataSource.apply(initialSnapshot, animatingDifferences: true)
+            case .postre:
+                self.viewPostres.isHidden = hideView
+                self.postresDataSource.apply(initialSnapshot, animatingDifferences: true)
+            }
         }
     }
     
-    private func getCollectionViewInfo(id: Int) -> Dictionary<String, Any> {
-        var result:[String:Any] = [:]
-        
-        switch id {
-        case 0:
-            result["category"] = RecipeModel.RecipeCategories.entrada.rawValue
-            result["currentView"] = self.viewEntradas
-            break
-        case 1:
-            result["category"] = RecipeModel.RecipeCategories.sopa.rawValue
-            result["currentView"] = self.viewSopas
-            break
-        case 2:
-            result["category"] = RecipeModel.RecipeCategories.plato.rawValue
-            result["currentView"] = self.viewPlato
-            break
-        case 3:
-            result["category"] = RecipeModel.RecipeCategories.postre.rawValue
-            result["currentView"] = self.viewPostres
-            break
-        default:
-            break
-        }
-        
-        return result
-    }
-  
     @objc private func addItem() {
         performSegue(withIdentifier: "createRecipe", sender: nil)
     }
@@ -154,45 +202,7 @@ class ChefcitoItemsViewController: UIViewController {
 }
 
 // MARK: - UICollectionViewDataSource
-extension ChefcitoItemsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let tag = collectionView.tag
-        let info = self.getCollectionViewInfo(id: tag)
-        
-        if let category = info["category"] as? String, let currentView = info["currentView"] as? UIView {
-            if let recipes = self.recipesByCategory[category] {
-                currentView.isHidden = false
-                if recipes.count > self.limit {
-                    return self.limit
-                } else {
-                    return recipes.count
-                }
-            } else {
-                currentView.isHidden = true
-                return 0
-            }
-        } else {
-            return 0
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let tag = collectionView.tag
-        let info = self.getCollectionViewInfo(id: tag)
-        let category = info["category"] as! String
-        let recipe = self.recipesByCategory[category]![indexPath.row]
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recipeMainCell", for: indexPath) as! RecipeMainViewCell
-        cell.name.text = recipe.getName()
-        
-        if let recipeImage = recipe.getImage() {
-            cell.image.image = recipeImage
-        }
-        
-        return cell
-    }
-    
+extension ChefcitoItemsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = CGSize(width: 280, height: 168)
         return size

@@ -9,14 +9,20 @@ import Foundation
 import UIKit
 import Alamofire
 
-struct RecipeModel {
+enum Section {
+    case main
+}
+
+class RecipeModel: Hashable {
     private let name: String!
     private let category: String!
     private let ingredients: [String]!
     private let instructions: String!
     private let count: Int!
     private let imageData: Data?
-    private let image:UIImage?
+    public var image:UIImage?
+    private let imageURL: URL?
+    private let identifier = UUID()
     private var headers:HTTPHeaders = ["token": UserModel.getToken()]
     
     public enum RecipeError: String {
@@ -29,9 +35,19 @@ struct RecipeModel {
         case sopa = "Sopa"
         case plato = "Plato fuerte"
         case postre = "Postre"
+        
+        static let allCases = [entrada, sopa, plato, postre]
     }
     
-    init(name: String, category: String, ingredients: [String], instructions: String, count: Int, image: UIImage? ) {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(identifier)
+    }
+    
+    static func == (lhs: RecipeModel, rhs: RecipeModel) -> Bool {
+        return lhs.identifier == rhs.identifier
+    }
+    
+    init(name: String, category: String, ingredients: [String], instructions: String, count: Int, image: UIImage?, imageURL: URL? ) {
         self.name = name.trimmingCharacters(in: .whitespaces)
         self.category = category.trimmingCharacters(in: .whitespaces)
         self.ingredients = ingredients
@@ -40,27 +56,28 @@ struct RecipeModel {
         
         if image != nil {
             self.imageData = image?.jpegData(compressionQuality: 0.2)
-            self.image = image
         } else {
             self.imageData = nil
-            self.image = nil
         }
+        
+        self.image = image
+        self.imageURL = imageURL
     }
     
-    //Getters
-    
+    // MARK: - Getters
     public func getName() -> String {
         return self.name
-    }
-    
-    public func getImage() -> UIImage? {
-        return self.image
     }
     
     public func getCategory() -> String {
         return self.category
     }
     
+    public func getImageURL() -> URL? {
+        return self.imageURL
+    }
+    
+    // MARK: - Methods
     public func validateRecipe() -> RecipeError {
         
         if(name == "" || category == "" || instructions == "" || count <= 0 || ingredients.count == 0 || imageData == nil) {
