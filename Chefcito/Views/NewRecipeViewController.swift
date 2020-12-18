@@ -179,7 +179,11 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
         let alertAction = UIAlertAction(title: "Ok", style: .default) { (action) in
             if !isError {
                 if let oVC = self.originalVC {
-                    oVC.recipesByCategory[recipeModel!.getCategory()]?.insert(recipeModel!, at: 0)
+                    if var currentRecipes = oVC.recipesByCategory[recipeModel!.getCategory()] {
+                        currentRecipes.insert(recipeModel!, at: 0)
+                    } else {
+                        oVC.recipesByCategory[recipeModel!.getCategory()] = [recipeModel!]
+                    }
                     oVC.reloadCollectionViews()
                 }
                 self.navigationController?.popViewController(animated: true)
