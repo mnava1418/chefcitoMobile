@@ -20,22 +20,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="receta" translatesAutoresizingMaskIntoConstraints="NO" id="tEa-ZV-cCf">
-                                <rect key="frame" x="8" y="8" width="130" height="84"/>
+                                <rect key="frame" x="16" y="8" width="130" height="84"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="xsg-fu-CMX"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7B-4J-dIs">
-                                <rect key="frame" x="146" y="8" width="166" height="84"/>
+                                <rect key="frame" x="154" y="8" width="158" height="84"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ms-x6-Mig">
-                                        <rect key="frame" x="8" y="32" width="110" height="20"/>
+                                        <rect key="frame" x="8" y="32" width="102" height="20"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFj-X2-6Cp">
-                                        <rect key="frame" x="126" y="29.5" width="24" height="24"/>
+                                        <rect key="frame" x="118" y="29.5" width="24" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="SZj-1K-dYp"/>
                                             <constraint firstAttribute="width" constant="24" id="feb-bD-zhQ"/>
@@ -62,7 +62,7 @@
                             <constraint firstAttribute="bottom" secondItem="tEa-ZV-cCf" secondAttribute="bottom" constant="8" id="Mxr-aG-Jkl"/>
                             <constraint firstAttribute="trailing" secondItem="e7B-4J-dIs" secondAttribute="trailing" constant="8" id="WYs-1W-6ig"/>
                             <constraint firstItem="e7B-4J-dIs" firstAttribute="leading" secondItem="tEa-ZV-cCf" secondAttribute="trailing" constant="8" id="gdG-bE-syU"/>
-                            <constraint firstItem="tEa-ZV-cCf" firstAttribute="leading" secondItem="YaL-be-hOB" secondAttribute="leading" constant="8" id="pcM-Nc-5Rp"/>
+                            <constraint firstItem="tEa-ZV-cCf" firstAttribute="leading" secondItem="YaL-be-hOB" secondAttribute="leading" constant="16" id="pcM-Nc-5Rp"/>
                             <constraint firstItem="e7B-4J-dIs" firstAttribute="top" secondItem="YaL-be-hOB" secondAttribute="top" constant="8" id="xH4-lg-18A"/>
                             <constraint firstAttribute="height" constant="100" id="xdT-0V-wEf"/>
                         </constraints>
