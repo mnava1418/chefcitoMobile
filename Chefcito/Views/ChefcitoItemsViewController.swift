@@ -7,12 +7,18 @@
 
 import UIKit
 
+enum NextAction {
+    case addRecipe
+    case showRecipes
+}
 
 enum RecipeCategories: String {
     case entradas = "Entradas"
     case sopas = "Sopas"
     case platos = "Platos Fuertes"
     case postres = "Postres"
+    
+    static let allValues = [entradas, sopas, platos, postres]
 }
 
 class ChefcitoItemsViewController: UIViewController {
@@ -36,6 +42,7 @@ class ChefcitoItemsViewController: UIViewController {
     let limit = 5
     var recipesByCategory:[String: Array<RecipeModel>] = [:]
     var downloadedURLs:[String:String] = [:]
+    var nextAction: NextAction = .addRecipe
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +69,7 @@ class ChefcitoItemsViewController: UIViewController {
                 return cell
             } else if recipe.getImageURL() != nil && self.downloadedURLs[recipe.getImageURL()!.absoluteString] == nil{
                 cell.image.image = UIImage(named: "receta")
-                self.loadImage(url: recipe.getImageURL()!) { image in
+                Utils.loadImage(url: recipe.getImageURL()!) { image in
                     var dataSource:UICollectionViewDiffableDataSource<Section, RecipeModel>?
                     
                     switch recipe.getCategory(){
@@ -93,18 +100,6 @@ class ChefcitoItemsViewController: UIViewController {
         }
         
         return dataSource
-    }
-    
-    private func loadImage(url: URL, completion: @escaping(UIImage) -> Void) {
-        DispatchQueue.global().async {
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        completion(image)
-                    }
-                }
-            }
-        }
     }
     
     private func prepareCollectionViews() {
@@ -210,15 +205,31 @@ class ChefcitoItemsViewController: UIViewController {
     }
     
     @objc private func addItem() {
+        self.nextAction = .addRecipe
         performSegue(withIdentifier: "createRecipe", sender: nil)
     }
-       
+    
+    @IBAction func showRecipes(_ sender: Any) {
+        self.nextAction = .showRecipes
+        performSegue(withIdentifier: "showRecipes", sender: sender)
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! NewRecipeViewController
-        destination.originalVC = self
+        switch self.nextAction {
+        case .addRecipe:
+            let destination = segue.destination as! NewRecipeViewController
+            destination.originalVC = self
+        case .showRecipes:
+            if let button = sender as? UIButton {
+                let destination = segue.destination as! ShowRecipesViewController
+                destination.title = RecipeCategories.allValues[button.tag].rawValue
+                destination.recipes = self.recipesByCategory[RecipeModel.RecipeCategories.allCases[button.tag].rawValue]
+                destination.downloadedURLs = self.downloadedURLs
+            }
+        }
     }
 }
 

@@ -31,6 +31,9 @@
 		50D94665255DFEF2003CC3DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D94663255DFEF2003CC3DA /* LaunchScreen.storyboard */; };
 		50D94670255DFEF2003CC3DA /* ChefcitoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9466F255DFEF2003CC3DA /* ChefcitoTests.swift */; };
 		50D9467B255DFEF3003CC3DA /* ChefcitoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9467A255DFEF3003CC3DA /* ChefcitoUITests.swift */; };
+		50DDE1E1258D7B0100A09CE9 /* ShowRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDE1E0258D7B0000A09CE9 /* ShowRecipesViewController.swift */; };
+		50DDE1E7258D823D00A09CE9 /* RecipeShowViewCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDE1E5258D823D00A09CE9 /* RecipeShowViewCellTableViewCell.swift */; };
+		50DDE1E8258D823D00A09CE9 /* RecipeShowViewCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50DDE1E6258D823D00A09CE9 /* RecipeShowViewCellTableViewCell.xib */; };
 		521E0D0DB8E9A425149AFCF3 /* Pods_ChefcitoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD962940CB64D5EF1BAF5F42 /* Pods_ChefcitoTests.framework */; };
 		78ECA9522766AC8A2B158360 /* Pods_Chefcito_ChefcitoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8473325D87DBEEEAAA09066 /* Pods_Chefcito_ChefcitoUITests.framework */; };
 		E0DEFD194DCD565D2279EFBF /* Pods_Chefcito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 486AD1F943DFE82C16DD3DBC /* Pods_Chefcito.framework */; };
@@ -85,6 +88,9 @@
 		50D94676255DFEF2003CC3DA /* ChefcitoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChefcitoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D9467A255DFEF3003CC3DA /* ChefcitoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefcitoUITests.swift; sourceTree = "<group>"; };
 		50D9467C255DFEF3003CC3DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50DDE1E0258D7B0000A09CE9 /* ShowRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRecipesViewController.swift; sourceTree = "<group>"; };
+		50DDE1E5258D823D00A09CE9 /* RecipeShowViewCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeShowViewCellTableViewCell.swift; sourceTree = "<group>"; };
+		50DDE1E6258D823D00A09CE9 /* RecipeShowViewCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeShowViewCellTableViewCell.xib; sourceTree = "<group>"; };
 		A8473325D87DBEEEAAA09066 /* Pods_Chefcito_ChefcitoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chefcito_ChefcitoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD962940CB64D5EF1BAF5F42 /* Pods_ChefcitoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChefcitoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4FA67AC78884C65B7FE1FB3 /* Pods-Chefcito.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chefcito.debug.xcconfig"; path = "Target Support Files/Pods-Chefcito/Pods-Chefcito.debug.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +134,8 @@
 			children = (
 				501B8E3B25804E37007B5EF3 /* RecipeMainViewCell.swift */,
 				501B8E3C25804E37007B5EF3 /* RecipeMainViewCell.xib */,
+				50DDE1E5258D823D00A09CE9 /* RecipeShowViewCellTableViewCell.swift */,
+				50DDE1E6258D823D00A09CE9 /* RecipeShowViewCellTableViewCell.xib */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -151,6 +159,7 @@
 				509107BB255F10AC00FDC841 /* RegisterViewController.swift */,
 				506F9B07256F2F2100777F9F /* ChefcitoItemsViewController.swift */,
 				50839D09257071FC00AD27F0 /* NewRecipeViewController.swift */,
+				50DDE1E0258D7B0000A09CE9 /* ShowRecipesViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -378,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50D94665255DFEF2003CC3DA /* LaunchScreen.storyboard in Resources */,
+				50DDE1E8258D823D00A09CE9 /* RecipeShowViewCellTableViewCell.xib in Resources */,
 				50D94662255DFEF2003CC3DA /* Assets.xcassets in Resources */,
 				50D94660255DFEEF003CC3DA /* Main.storyboard in Resources */,
 				501B8E3E25804E37007B5EF3 /* RecipeMainViewCell.xib in Resources */,
@@ -511,6 +521,7 @@
 				50097B6E2565605B00F588E3 /* FaceBookService.swift in Sources */,
 				50910794255EFD3D00FDC841 /* LoginViewController.swift in Sources */,
 				5023A9022579523200E1940E /* RecipeModel.swift in Sources */,
+				50DDE1E1258D7B0100A09CE9 /* ShowRecipesViewController.swift in Sources */,
 				509107BC255F10AC00FDC841 /* RegisterViewController.swift in Sources */,
 				50413A9D256893880097E3B2 /* Tokens.swift in Sources */,
 				509107B7255F0F6600FDC841 /* ViewUIElements.swift in Sources */,
@@ -524,6 +535,7 @@
 				50B563A12560608F00B29D0B /* NetworkService.swift in Sources */,
 				506337522562E1A0009E336E /* Constants.swift in Sources */,
 				50413AA525689D520097E3B2 /* GoogleService.swift in Sources */,
+				50DDE1E7258D823D00A09CE9 /* RecipeShowViewCellTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
