@@ -92,6 +92,7 @@ class ChefcitoItemsViewController: UIViewController {
                         self.downloadedURLs[recipe.getImageURL()!.absoluteString] = recipe.getImageURL()!.absoluteString
                         updatedSnapshot.reloadItems([recipe])
                         currentDataSource.apply(updatedSnapshot, animatingDifferences: true)
+                        recipe.cleanImageFile()
                     }
                 }
             }
@@ -157,7 +158,7 @@ class ChefcitoItemsViewController: UIViewController {
                                 imageURL = URL(string: url)
                             }
                             
-                            let currentRecipe = RecipeModel(name: recipe["name"] as! String, category: category, ingredients: recipe["ingredients"] as! [String], instructions: recipe["instructions"] as! String, count: recipe["count"] as! Int, image: nil, imageURL: imageURL)
+                            let currentRecipe = RecipeModel(name: recipe["name"] as! String, category: category, ingredients: recipe["ingredients"] as! [String], instructions: recipe["instructions"] as! String, count: recipe["count"] as! Int, fileName: fileName, image: nil, imageURL: imageURL)
                         
                             self.recipesByCategory[category]!.append(currentRecipe)
                         }

@@ -217,7 +217,7 @@ class NewRecipeViewController: UIViewController, UINavigationControllerDelegate 
         let count = Utils.parseInt(value: inputNum.text!)
         let categorySelected = pickerCategory.selectedRow(inComponent: 0)
         
-        let currentRecipe:RecipeModel = RecipeModel(name: inputName.text!, category: categories[categorySelected].rawValue, ingredients: ingredients, instructions: txtInstructions.text!, count: count, image: imgRecipe.image, imageURL: nil)
+        let currentRecipe:RecipeModel = RecipeModel(name: inputName.text!, category: categories[categorySelected].rawValue, ingredients: ingredients, instructions: txtInstructions.text!, count: count, fileName: nil, image: imgRecipe.image, imageURL: nil)
         let validationResult:RecipeModel.RecipeError = currentRecipe.validateRecipe()
         
         var title = "Error"

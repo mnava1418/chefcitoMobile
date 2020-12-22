@@ -19,6 +19,7 @@ class RecipeModel: Hashable {
     private var ingredients: [String]!
     private var instructions: String!
     private var count: Int!
+    private var fileName: String?
     private var imageData: Data?
     private var image:UIImage?
     private var imageURL: URL?
@@ -47,7 +48,7 @@ class RecipeModel: Hashable {
         return lhs.identifier == rhs.identifier
     }
     
-    init(name: String, category: String, ingredients: [String], instructions: String, count: Int, image: UIImage?, imageURL: URL? ) {
+    init(name: String, category: String, ingredients: [String], instructions: String, count: Int, fileName: String?, image: UIImage?, imageURL: URL? ) {
         self.name = name.trimmingCharacters(in: .whitespaces)
         self.category = category.trimmingCharacters(in: .whitespaces)
         self.ingredients = ingredients
@@ -60,6 +61,7 @@ class RecipeModel: Hashable {
             self.imageData = nil
         }
         
+        self.fileName = fileName
         self.image = image
         self.imageURL = imageURL
     }
@@ -117,6 +119,16 @@ class RecipeModel: Hashable {
         let headers:HTTPHeaders = ["token": UserModel.getToken(), "Content-Type": "application/x-www-form-urlencoded"]
         NetWorkService.httpRequest(url: "/recipe", method: .get, parameters: [:], headers: headers) { (status, json) in
             completion(status, json)
+        }
+    }
+    
+    public func cleanImageFile() {
+        if let _ = self.fileName {
+            self.fileName = self.fileName!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            let headers:HTTPHeaders = ["token": UserModel.getToken(), "Content-Type": "application/x-www-form-urlencoded"]
+            NetWorkService.httpRequest(url: "/recipe/\(self.fileName!)", method: .get, parameters: [:], headers: headers) { (status, json) in
+                print("Image removed")
+            }
         }
     }
 }

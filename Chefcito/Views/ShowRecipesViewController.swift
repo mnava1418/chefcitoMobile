@@ -48,6 +48,7 @@ class ShowRecipesViewController: UIViewController {
                     self.downloadedURLs[recipe.getImageURL()!.absoluteString] = recipe.getImageURL()!.absoluteString
                     updateSnapshot.reloadItems([recipe])
                     self.dataSource.apply(updateSnapshot, animatingDifferences: true)
+                    recipe.cleanImageFile()
                 }
             }
         
