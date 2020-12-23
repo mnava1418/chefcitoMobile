@@ -7,12 +7,18 @@
 
 import UIKit
 
+class RecipeDataSource: UITableViewDiffableDataSource<Section, RecipeModel> {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+}
+
 class ShowRecipesViewController: UIViewController {
            
     @IBOutlet weak var tableView: UITableView!
     
     var recipes:[RecipeModel]!
-    var dataSource: UITableViewDiffableDataSource<Section, RecipeModel>! = nil
+    var dataSource: RecipeDataSource! = nil
     var downloadedURLs:[String:String]!
     
     override func viewDidLoad() {
@@ -22,6 +28,7 @@ class ShowRecipesViewController: UIViewController {
         self.tableView.register(UINib(nibName: "RecipeShowViewCellTableViewCell", bundle: nil), forCellReuseIdentifier: "recipeShowCell")
         setDataSource()
         self.tableView.dataSource = self.dataSource
+        self.tableView.delegate = self
         
         var initialSnapshot = NSDiffableDataSourceSnapshot<Section, RecipeModel>()
         initialSnapshot.appendSections([.main])
@@ -30,7 +37,7 @@ class ShowRecipesViewController: UIViewController {
     }
     
     private func setDataSource() {
-        dataSource = UITableViewDiffableDataSource<Section, RecipeModel>(tableView: tableView) {
+        dataSource = RecipeDataSource(tableView: tableView) {
          (tableView: UITableView, indexPath: IndexPath, recipe: RecipeModel) -> UITableViewCell? in
             let cell = tableView.dequeueReusableCell(withIdentifier: "recipeShowCell", for: indexPath) as! RecipeShowViewCellTableViewCell
             cell.name.text = recipe.getName()
@@ -56,6 +63,12 @@ class ShowRecipesViewController: UIViewController {
         }
     }
     
+    private func deleteRecipe(indexPath: IndexPath) {
+        let recipe = self.recipes[indexPath.row]
+        print(recipe)
+    }
+    
+    
     /*
     // MARK: - Navigation
 
@@ -66,4 +79,19 @@ class ShowRecipesViewController: UIViewController {
     }
     */
 
+}
+// MARK: - UITableViewDelegate
+extension ShowRecipesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { (action, view, compretionHandler) in
+            self.deleteRecipe(indexPath: indexPath)
+        }
+     
+        deleteAction.backgroundColor = .red
+        deleteAction.image = UIImage(systemName: "trash")
+         
+        let actions = UISwipeActionsConfiguration(actions: [deleteAction])
+        actions.performsFirstActionWithFullSwipe = true
+        return actions
+    }
 }
